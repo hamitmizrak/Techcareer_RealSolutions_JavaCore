@@ -1,0 +1,8 @@
+Compiler ile Interpreter arasındaki farklar
+JVM nedir ?
+JDK nedir ?
+JRE nedir ?
+JIT nedir ?
+Java Common Rules,
+Java Nedir ?
+Neden Java8 öğrenmek zorundayız ?
