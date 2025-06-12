@@ -1,3 +1,4 @@
 Shift+F6     = Rename
 Ctrl+Shift+F = Beautify
-Ctrl+Shift+/ ? comment
+Ctrl+Shift+/ = comment
+Ctrl+Alt+O   = Gereksiz kütüphalerini kaldırır
