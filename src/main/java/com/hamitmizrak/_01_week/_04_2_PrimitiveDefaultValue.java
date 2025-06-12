@@ -1,6 +1,6 @@
 package com.hamitmizrak._01_week;
 
-public class _04_PrimitiveDefaultValue {
+public class _04_2_PrimitiveDefaultValue {
 
     /**
      Primitive Types;
