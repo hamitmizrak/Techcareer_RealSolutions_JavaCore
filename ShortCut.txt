@@ -1,0 +1,3 @@
+Shift+F6     = Rename
+Ctrl+Shift+F = Beautify
+Ctrl+Shift+/ ? comment

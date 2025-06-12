@@ -1,1 +1,0 @@
-Shift+F6 = Rename

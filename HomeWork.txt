@@ -1,3 +1,6 @@
+
+# 1.HAFTA
+1.Ders (10-06-2025)
 Compiler ile Interpreter arasındaki farklar
 JVM nedir ?
 JDK nedir ?
@@ -6,3 +9,11 @@ JIT nedir ?
 Java Common Rules,
 Java Nedir ?
 Neden Java8 öğrenmek zorundayız ?
+
+-------------------
+2.Ders (10-06-2025)
+jar - war
+
+
+###########################################################
+# 2.HAFTA
