@@ -466,6 +466,140 @@ Java'da **çalışma sıralaması** hem bir Java programı derlendiğinde hem de
 ---
 
 
+### **Java'da Compiler mı Önce, Interpreter mı?**
+Java programlarının çalışma süreci **hem compiler (derleyici) hem de interpreter (yorumlayıcı)** içerir, ancak **önce compiler çalışır, sonra interpreter devreye girer**.
+
+1. **Compiler (Derleyici) İlk Çalışır:**
+    - Java kaynak kodu (`.java` dosyaları) **Javac (Java Compiler)** tarafından **Bytecode**’a (`.class` dosyaları) dönüştürülür.
+    - Bytecode **işletim sistemine bağımsızdır**, yani her ortamda çalışabilir.
+
+2. **Interpreter (Yorumlayıcı) Sonra Çalışır:**
+    - **Java Virtual Machine (JVM)**, Bytecode’u alır ve **Just-In-Time (JIT) Compiler** ile çalıştırılabilir makine koduna dönüştürür.
+    - JVM, Bytecode'u **satır satır yorumlar ve çalıştırır**.
+
+### **Java Programının Life-Cycle (Yaşam Döngüsü)**
+Java'daki bir programın baştan sona yaşam döngüsünü adım adım açıklayalım:
+
+---
+
+## **1. Yazılım Aşaması (Source Code - `.java` Dosyası)**
+Geliştirici, **Java kaynak kodunu** (`.java` dosyalarını) yazar.  
+Örneğin:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+---
+
+## **2. Compilation (Derleme) Aşaması**
+Java **compiler** (`javac`), kaynak kodunu **Bytecode**’a çevirir.
+
+### **Bu aşamada şunlar olur:**
+- **Syntax kontrolü yapılır:** Derleyici (`javac`), kodun sözdizimi hatalarını kontrol eder.
+- **Optimizasyon yapılır:** Kod en verimli hale getirilir.
+- **Bytecode üretilir:** **Makineye bağımsız** `.class` dosyası oluşturulur.
+
+### **Kompilasyon (Derleme) Komutu:**
+```sh
+javac HelloWorld.java
+```
+
+Bu komut sonucunda, aşağıdaki dosya oluşur:
+
+```
+HelloWorld.class
+```
+
+Bu `.class` dosyası **Java Bytecode** içerir.
+
+---
+
+## **3. ClassLoader Aşaması**
+Java **ClassLoader**, `.class` dosyalarını JVM’ye yükler.
+
+- **Bootstrap ClassLoader:** Java’nın temel sınıflarını (`java.lang.*`) yükler.
+- **Extensions ClassLoader:** Ekstra kütüphaneleri (`lib/ext` dizinindekileri) yükler.
+- **Application ClassLoader:** Kullanıcının kendi yazdığı sınıfları yükler.
+
+---
+
+## **4. Bytecode Verification (Bytecode Doğrulama)**
+- **JVM, Bytecode’un güvenliğini kontrol eder.**
+- **Hatalı veya zararlı kodların çalışmasını önler.**
+- **Bellek aşımı veya yasadışı bellek erişimlerini engeller.**
+
+---
+
+## **5. Interpreter (Yorumlayıcı) Aşaması**
+- **Java Interpreter**, Bytecode’u **satır satır okur ve çalıştırır**.
+- Ancak, **sürekli yorumlama yavaş olabilir**, bu yüzden **JIT (Just-In-Time) Compiler** devreye girer.
+
+---
+
+## **6. Just-In-Time (JIT) Compiler Aşaması**
+- JIT Compiler, **tekrar eden kodları alır ve doğrudan makine koduna çevirir**.
+- **JVM’nin performansını artırır**, çünkü aynı kodun sürekli yorumlanmasını önler.
+
+---
+
+## **7. Runtime (Çalışma Zamanı)**
+- **Garbage Collector (GC):** Kullanılmayan nesneleri bellekten temizler.
+- **Thread Management:** Çoklu işlemler arasında zamanlamayı yönetir.
+- **Exception Handling:** Çalışma sırasında oluşan hataları yakalar.
+
+---
+
+## **8. Programın Çıkışı**
+Eğer her şey doğru giderse, programın çıktısı ekrana yazdırılır:
+
+```sh
+Hello, World!
+```
+
+---
+
+### **Genel Özet: Java Çalışma Döngüsü**
+1. **Source Code (`.java`) yazılır.**
+2. **Java Compiler (`javac`) kodu Bytecode (`.class`) haline getirir.**
+3. **ClassLoader**, `.class` dosyasını JVM’ye yükler.
+4. **Bytecode Verification** aşaması güvenlik kontrolü yapar.
+5. **Interpreter**, Bytecode’u **satır satır yorumlar** ve çalıştırır.
+6. **JIT Compiler**, sık kullanılan kodları **makine koduna** çevirir (performans artırır).
+7. **Garbage Collector**, kullanılmayan bellekleri temizler.
+8. **Program sonucu ekrana yazdırılır.**
+
+---
+
+### **Compiler vs. Interpreter: Hangisi Önce?**
+✅ **Önce Compiler (`javac`) çalışır → Sonra Interpreter (`JVM`) çalışır.**  
+🚀 **Sonuç:** Java hem **compiled** (derlenen) hem de **interpreted** (yorumlanan) bir dildir.
+
+
+# **Java Wrapper Type Nedir? – Detaylı Açıklama**
+
+## **1. Wrapper Type (Sarmalayıcı Tür) Nedir?**
+Java'da **Wrapper Type**, **primitive type (ilkel veri türleri)** ile çalışırken nesneye (Object) ihtiyaç duyduğumuz durumlarda kullanılan **sarmalayıcı (wrapper) sınıflardır**.
+
+### **Neden Wrapper Type Kullanılır?**
+Java’daki **primitive veri türleri (`int`, `double`, `boolean` vb.) nesne değildir.** Ancak, Java’da birçok yapı (Koleksiyonlar `List`, `Set`, `Map` vb.) **nesnelerle çalışır**. Bu nedenle **primitive türleri nesnelere dönüştürmek için** Wrapper Type kullanılır.
+
+**Örnek:**
+```java
+int x = 10;          // Primitive type
+Integer y = 10;      // Wrapper type (Nesne)
+```
+Burada:
+- `x` bir **primitive** int türüdür.
+- `y` ise **Integer sınıfından bir nesnedir**.
+
+---
+
+
 
 ## Primitive Types
 ```sh 
@@ -1116,138 +1250,8 @@ Bu yüzden **`new` ile nesne oluşturmaktan kaçınılmalı ve autoboxing kullan
 
 ```
 ---
-### **Java'da Compiler mı Önce, Interpreter mı?**
-Java programlarının çalışma süreci **hem compiler (derleyici) hem de interpreter (yorumlayıcı)** içerir, ancak **önce compiler çalışır, sonra interpreter devreye girer**.
-
-1. **Compiler (Derleyici) İlk Çalışır:**
-    - Java kaynak kodu (`.java` dosyaları) **Javac (Java Compiler)** tarafından **Bytecode**’a (`.class` dosyaları) dönüştürülür.
-    - Bytecode **işletim sistemine bağımsızdır**, yani her ortamda çalışabilir.
-
-2. **Interpreter (Yorumlayıcı) Sonra Çalışır:**
-    - **Java Virtual Machine (JVM)**, Bytecode’u alır ve **Just-In-Time (JIT) Compiler** ile çalıştırılabilir makine koduna dönüştürür.
-    - JVM, Bytecode'u **satır satır yorumlar ve çalıştırır**.
-
-### **Java Programının Life-Cycle (Yaşam Döngüsü)**
-Java'daki bir programın baştan sona yaşam döngüsünü adım adım açıklayalım:
-
----
-
-## **1. Yazılım Aşaması (Source Code - `.java` Dosyası)**
-Geliştirici, **Java kaynak kodunu** (`.java` dosyalarını) yazar.  
-Örneğin:
-
-```java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-
----
-
-## **2. Compilation (Derleme) Aşaması**
-Java **compiler** (`javac`), kaynak kodunu **Bytecode**’a çevirir.
-
-### **Bu aşamada şunlar olur:**
-- **Syntax kontrolü yapılır:** Derleyici (`javac`), kodun sözdizimi hatalarını kontrol eder.
-- **Optimizasyon yapılır:** Kod en verimli hale getirilir.
-- **Bytecode üretilir:** **Makineye bağımsız** `.class` dosyası oluşturulur.
-
-### **Kompilasyon (Derleme) Komutu:**
-```sh
-javac HelloWorld.java
-```
-
-Bu komut sonucunda, aşağıdaki dosya oluşur:
-
-```
-HelloWorld.class
-```
-
-Bu `.class` dosyası **Java Bytecode** içerir.
-
----
-
-## **3. ClassLoader Aşaması**
-Java **ClassLoader**, `.class` dosyalarını JVM’ye yükler.
-
-- **Bootstrap ClassLoader:** Java’nın temel sınıflarını (`java.lang.*`) yükler.
-- **Extensions ClassLoader:** Ekstra kütüphaneleri (`lib/ext` dizinindekileri) yükler.
-- **Application ClassLoader:** Kullanıcının kendi yazdığı sınıfları yükler.
-
----
-
-## **4. Bytecode Verification (Bytecode Doğrulama)**
-- **JVM, Bytecode’un güvenliğini kontrol eder.**
-- **Hatalı veya zararlı kodların çalışmasını önler.**
-- **Bellek aşımı veya yasadışı bellek erişimlerini engeller.**
-
----
-
-## **5. Interpreter (Yorumlayıcı) Aşaması**
-- **Java Interpreter**, Bytecode’u **satır satır okur ve çalıştırır**.
-- Ancak, **sürekli yorumlama yavaş olabilir**, bu yüzden **JIT (Just-In-Time) Compiler** devreye girer.
-
----
-
-## **6. Just-In-Time (JIT) Compiler Aşaması**
-- JIT Compiler, **tekrar eden kodları alır ve doğrudan makine koduna çevirir**.
-- **JVM’nin performansını artırır**, çünkü aynı kodun sürekli yorumlanmasını önler.
-
----
-
-## **7. Runtime (Çalışma Zamanı)**
-- **Garbage Collector (GC):** Kullanılmayan nesneleri bellekten temizler.
-- **Thread Management:** Çoklu işlemler arasında zamanlamayı yönetir.
-- **Exception Handling:** Çalışma sırasında oluşan hataları yakalar.
-
----
-
-## **8. Programın Çıkışı**
-Eğer her şey doğru giderse, programın çıktısı ekrana yazdırılır:
-
-```sh
-Hello, World!
-```
-
----
-
-### **Genel Özet: Java Çalışma Döngüsü**
-1. **Source Code (`.java`) yazılır.**
-2. **Java Compiler (`javac`) kodu Bytecode (`.class`) haline getirir.**
-3. **ClassLoader**, `.class` dosyasını JVM’ye yükler.
-4. **Bytecode Verification** aşaması güvenlik kontrolü yapar.
-5. **Interpreter**, Bytecode’u **satır satır yorumlar** ve çalıştırır.
-6. **JIT Compiler**, sık kullanılan kodları **makine koduna** çevirir (performans artırır).
-7. **Garbage Collector**, kullanılmayan bellekleri temizler.
-8. **Program sonucu ekrana yazdırılır.**
-
----
-
-### **Compiler vs. Interpreter: Hangisi Önce?**
-✅ **Önce Compiler (`javac`) çalışır → Sonra Interpreter (`JVM`) çalışır.**  
-🚀 **Sonuç:** Java hem **compiled** (derlenen) hem de **interpreted** (yorumlanan) bir dildir.
 
 
-# **Java Wrapper Type Nedir? – Detaylı Açıklama**
-
-## **1. Wrapper Type (Sarmalayıcı Tür) Nedir?**
-Java'da **Wrapper Type**, **primitive type (ilkel veri türleri)** ile çalışırken nesneye (Object) ihtiyaç duyduğumuz durumlarda kullanılan **sarmalayıcı (wrapper) sınıflardır**.
-
-### **Neden Wrapper Type Kullanılır?**
-Java’daki **primitive veri türleri (`int`, `double`, `boolean` vb.) nesne değildir.** Ancak, Java’da birçok yapı (Koleksiyonlar `List`, `Set`, `Map` vb.) **nesnelerle çalışır**. Bu nedenle **primitive türleri nesnelere dönüştürmek için** Wrapper Type kullanılır.
-
-**Örnek:**
-```java
-int x = 10;          // Primitive type
-Integer y = 10;      // Wrapper type (Nesne)
-```
-Burada:
-- `x` bir **primitive** int türüdür.
-- `y` ise **Integer sınıfından bir nesnedir**.
-
----
 
 ## **2. Primitive Type ve Wrapper Type Karşılaştırması**
 | **Primitive Type** | **Karşılık Gelen Wrapper Type** |
@@ -1286,6 +1290,8 @@ public class WrapperExample {
 
 ---
 
+
+## Cast
 ## **4. Autoboxing ve Unboxing**
 Java 5 ile gelen **Autoboxing ve Unboxing**, primitive türler ile Wrapper türler arasında **otomatik dönüşüm sağlar**.
 
