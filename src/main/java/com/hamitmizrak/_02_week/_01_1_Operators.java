@@ -1,6 +1,6 @@
 package com.hamitmizrak._02_week;
 
-public class _01_Operators {
+public class _01_1_Operators {
 
     public static void main(String[] args) {
         // Aritmetic Operators
