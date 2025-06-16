@@ -1,4 +1,4 @@
 package com.hamitmizrak._02_week;
 
-public class _07_Array {
+public class _03_2_EscapeCharacter {
 }

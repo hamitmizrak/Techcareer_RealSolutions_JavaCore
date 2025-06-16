@@ -44,3 +44,4 @@
 
 ###########################################################
 # 2.HAFTA
+parametre ile argüman arasındaki fark ?

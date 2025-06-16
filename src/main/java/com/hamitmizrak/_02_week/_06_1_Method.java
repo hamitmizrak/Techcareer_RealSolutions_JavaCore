@@ -1,4 +1,4 @@
 package com.hamitmizrak._02_week;
 
-public class _03_Operators {
+public class _06_1_Method {
 }
