@@ -2,7 +2,7 @@ package com.hamitmizrak._02_week;
 
 import java.util.StringTokenizer;
 
-public class _05_2_StringBuilderBufferToken {
+public class _05_2_StringBuilderBufferTokenizer {
 
     public static void main(String[] args) {
 
