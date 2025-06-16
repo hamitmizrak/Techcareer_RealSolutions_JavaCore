@@ -44,4 +44,10 @@
 
 ###########################################################
 # 2.HAFTA
-parametre ile argüman arasındaki fark ?
+2.1- parametre ile argüman arasındaki fark ?
+
+2.1- String instance1="Merhabalar"; ile  String instance2= new String ("Merhabalar2") arasındaki farklar nelerdir ?
+
+2.1 Integer.valueOf("44") ile Integer.parseInt("44") bunlar arasındaki farklar ?
+
+2.1 isEmpty() - isBlank()

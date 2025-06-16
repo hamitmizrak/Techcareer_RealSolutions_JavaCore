@@ -1,8 +1,9 @@
 package com.hamitmizrak._02_week;
 
-public class _01_2_NumberSystem {
+public class _01_2_NumberSystem_1 {
 
     // Number System (  // 2-8-10-16)
+    // Verilen tabanı => 10 tabana çevirmek
     public static void main(String[] args) {
 
         // Binary(2) => 0,1
