@@ -1,4 +1,4 @@
 package com.hamitmizrak._05_week;
 
-public class Reflection {
+public class _02_Reflection {
 }
