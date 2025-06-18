@@ -1,6 +1,6 @@
 package com.hamitmizrak._02_week;
 
-public class _08_Loop {
+public class _08_1_Loop {
 
     public static void forLoop() {
         for (int i = 1; i <= 10; i++) {

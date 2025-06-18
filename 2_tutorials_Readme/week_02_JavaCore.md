@@ -1130,7 +1130,6 @@ public class NumberUtils {
 }
 
 
-
 ## 🔢 3. Örnek 1: Faktöriyel Hesaplama
 
 `n! = n * (n-1)!`
@@ -1462,7 +1461,7 @@ Date date2 = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 ---
 
 
-Tabii Hamit Hocam, Java'da **Exception (istisna)** kavramı çok temel ve kritik bir konudur. Hataları yönetmenin yapısal ve kontrollü bir yoludur. Şimdi detaylıca, örneklerle birlikte adım adım inceleyelim:
+ Java'da **Exception (istisna)** kavramı çok temel ve kritik bir konudur. Hataları yönetmenin yapısal ve kontrollü bir yoludur. Şimdi detaylıca, örneklerle birlikte adım adım inceleyelim:
 
 ---
 
