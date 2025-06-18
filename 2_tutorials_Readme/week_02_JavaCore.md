@@ -1046,3 +1046,659 @@ public class HesapMakinesi {
 ---
 
 
+## Java Core Recursive Method
+```sh 
+
+```
+---
+
+Java'da **recursive method (özyinelemeli yöntem)** konusunu detaylıca, sade örneklerle açıklayayım.
+
+---
+
+## 🔁 1. Recursive Method Nedir?
+
+**Recursive (özyinelemeli)** bir metot, **kendi kendini çağıran** bir metottur. Genellikle **bir problemi daha küçük alt parçalara bölerek** çözmek için kullanılır.
+
+> 📌 Örnek: Faktöriyel, Fibonacci, dosya/dizin tarayıcıları, ağaç (tree) yapıları vb.
+
+---
+
+## ✅ 2. Recursive Yapının Temel Özellikleri
+
+### a) **Base Case**:
+
+Yinelemenin duracağı yer. **Sonsuz döngüye** girmemesi için mutlaka olmalı.
+
+### b) **Recursive Case**:
+
+Metot, daha küçük bir problemi çözmek için **kendini yeniden çağırır.**
+
+---
+
+
+public class NumberUtils {
+
+    // Faktöriyel - Iterative
+    public static long factorialIterative(int n) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    // Faktöriyel - Recursive
+    public static long factorialRecursive(int n) {
+        if (n == 0 || n == 1)
+            return 1;
+        return n * factorialRecursive(n - 1);
+    }
+
+    // Asal Sayı - Iterative
+    public static boolean isPrimeIterative(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    // Asal Sayı - Recursive
+    public static boolean isPrimeRecursive(int n) {
+        return isPrimeHelper(n, 2);
+    }
+
+    private static boolean isPrimeHelper(int n, int divisor) {
+        if (n <= 1) return false;
+        if (divisor > Math.sqrt(n)) return true;
+        if (n % divisor == 0) return false;
+        return isPrimeHelper(n, divisor + 1);
+    }
+
+    // Test
+    public static void main(String[] args) {
+        int sayi = 5;
+
+        System.out.println("Faktöriyel (Iterative): " + factorialIterative(sayi));
+        System.out.println("Faktöriyel (Recursive): " + factorialRecursive(sayi));
+
+        System.out.println("Asal mı? (Iterative): " + isPrimeIterative(sayi));
+        System.out.println("Asal mı? (Recursive): " + isPrimeRecursive(sayi));
+    }
+}
+
+
+
+## 🔢 3. Örnek 1: Faktöriyel Hesaplama
+
+`n! = n * (n-1)!`
+
+```java
+public class RecursiveExample {
+    public static int factorial(int n) {
+        if (n == 0)  // base case
+            return 1;
+        else
+            return n * factorial(n - 1); // recursive case
+    }
+
+    public static void main(String[] args) {
+        System.out.println(factorial(5)); // 120
+    }
+}
+```
+
+### 📌 Açıklama:
+
+```text
+factorial(5)
+→ 5 * factorial(4)
+→ 5 * 4 * factorial(3)
+→ 5 * 4 * 3 * factorial(2)
+→ 5 * 4 * 3 * 2 * factorial(1)
+→ 5 * 4 * 3 * 2 * 1 * factorial(0)
+→ 5 * 4 * 3 * 2 * 1 * 1 = 120
+```
+
+---
+
+## 🐢 4. Örnek 2: Fibonacci Serisi
+
+Fibonacci: `0, 1, 1, 2, 3, 5, 8, ...`
+Formül: `F(n) = F(n-1) + F(n-2)`
+
+```java
+public class FibonacciExample {
+    public static int fibonacci(int n) {
+        if (n == 0)
+            return 0;
+        else if (n == 1)
+            return 1;
+        else
+            return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 7; i++)
+            System.out.print(fibonacci(i) + " ");
+        // Çıktı: 0 1 1 2 3 5 8
+    }
+}
+```
+
+---
+
+## 📁 5. Örnek 3: Dizinleri Listeleme (Recursive Kullanımı)
+
+```java
+import java.io.File;
+
+public class DirectoryExplorer {
+    public static void listFiles(String path) {
+        File file = new File(path);
+        if (file.isDirectory()) {
+            for (File f : file.listFiles()) {
+                if (f.isDirectory()) {
+                    listFiles(f.getAbsolutePath());
+                } else {
+                    System.out.println(f.getAbsolutePath());
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        listFiles("C:/Users"); // Gerçek dizin verin
+    }
+}
+```
+
+---
+
+## ⚠️ 6. Dikkat Edilmesi Gerekenler
+
+| Uyarı          | Açıklama                                                                      |
+| -------------- | ----------------------------------------------------------------------------- |
+| Sonsuz döngü   | `base case` olmazsa, **StackOverflowError** oluşur                            |
+| Performans     | Bazı recursive işlemler (örneğin klasik Fibonacci) **çok fazla tekrar** yapar |
+| Alternatif     | Her recursive işlem **iteratif (döngüsel)** yapılabilir                       |
+| Tail recursion | JVM desteklemese de bazı dillerde optimize edilir                             |
+
+---
+
+## 🔁 7. Recursive vs Iterative (Kıyaslama)
+
+| Özellik          | Recursive                           | Iterative                  |
+| ---------------- | ----------------------------------- | -------------------------- |
+| Yazımı           | Daha kısa ve sade                   | Daha uzun ama performanslı |
+| Bellek kullanımı | Fazladır (stack kullanır)           | Daha azdır                 |
+| Hata riski       | StackOverflow riski vardır          | Daha güvenlidir            |
+| Kullanım alanı   | Ağaç, grafik, matematiksel işlemler | Genel amaçlı               |
+
+---
+
+## 🧠 8. Gerçek Hayatta Nerede Kullanılır?
+
+* Ağaç yapılarında gezinme (DOM, JSON, dosya sistemi)
+* Matematiksel hesaplar: Faktöriyel, Fibonacci, GCD (ebob)
+* Yapay zeka ve oyun algoritmaları (DFS, Minimax)
+* Derleyici yapıları (AST ağacı çözümleme)
+
+---
+
+## 📌 9. Bonus: GCD (En Büyük Ortak Bölen)
+
+```java
+public static int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+```
+
+---
+
+## 🎯 Sonuç
+
+* Recursive metotlar problemi **kendi kendini çağırarak** çözer.
+* Her zaman **base case** içermelidir.
+* Kodun sadeleşmesini sağlar ancak belleğe dikkat edilmelidir.
+
+---
+
+
+
+
+## Java Core Date
+```sh 
+
+```
+---
+
+Java'da `Date` sınıfı zamanla ilgili işlemlerde en temel sınıflardan biridir ancak tarihsel olarak biraz eski kalmıştır. Bu nedenle hem `Date` sınıfını hem de onun yerine gelen `java.time` paketindeki modern alternatiflerini detaylı bir şekilde açıklayacağım.
+
+---
+
+## 🔹 1. `java.util.Date` Sınıfı (Klasik Tarih Zaman Sınıfı)
+
+### 🔧 Tanım:
+
+`Date` sınıfı, milisaniye cinsinden bir zaman damgasını tutar. 1 Ocak 1970 UTC tarihinden itibaren geçen zamanı ifade eder (Epoch time).
+
+```java
+import java.util.Date;
+
+public class DateExample {
+    public static void main(String[] args) {
+        Date date = new Date();
+        System.out.println(date);  // Çıktı: Wed Jun 18 17:00:00 TRT 2025
+    }
+}
+```
+
+---
+
+### 📌 Önemli Metotlar:
+
+| Metot                  | Açıklama                                  |
+| ---------------------- | ----------------------------------------- |
+| `getTime()`            | Epoch time olarak milisaniye verir        |
+| `before(Date date)`    | Bu tarih verilen tarihten önce mi?        |
+| `after(Date date)`     | Bu tarih verilen tarihten sonra mı?       |
+| `compareTo(Date date)` | Karşılaştırma yapar (negatif, 0, pozitif) |
+| `toString()`           | Tarihi okunabilir formatta döner          |
+
+```java
+Date d1 = new Date();
+Thread.sleep(1000); // 1 saniye beklet
+Date d2 = new Date();
+
+System.out.println(d1.before(d2)); // true
+System.out.println(d1.compareTo(d2)); // -1
+```
+
+---
+
+### ⚠️ Eksiklikler ve Sorunlar:
+
+* Aylar 0'dan başlar (`0 = Ocak`, `11 = Aralık`)
+* Yıllar 1900'e göre verilir: `new Date(122, 5, 18)` → 2022-06-18
+* Zaman dilimi desteği yetersizdir.
+* `Date` **mutable** (değiştirilebilir) bir sınıftır → **Thread-safe değildir.**
+* Bu yüzden **`java.time` paketi** önerilir.
+
+---
+
+## 🔹 2. `java.sql.Date`, `Time`, `Timestamp` (JDBC için)
+
+* `java.sql.Date` → sadece tarih
+* `java.sql.Time` → sadece saat
+* `java.sql.Timestamp` → tarih + saat + nanosaniye
+
+```java
+import java.sql.Date;
+Date sqlDate = new Date(System.currentTimeMillis());
+```
+
+---
+
+## ✅ 3. `java.time` Paketi (Java 8+ Modern Zaman API’si)
+
+Bu paket `Joda-Time` benzeri modern bir API sağlar. Immutable ve Thread-safe'dir.
+
+### 🎯 Temel Sınıflar:
+
+| Sınıf           | Açıklama                    |
+| --------------- | --------------------------- |
+| `LocalDate`     | Sadece tarih (YYYY-MM-DD)   |
+| `LocalTime`     | Sadece saat (HH\:mm\:ss)    |
+| `LocalDateTime` | Tarih + saat                |
+| `ZonedDateTime` | Tarih + saat + zaman dilimi |
+| `Instant`       | Epoch time benzeri          |
+| `Period`        | Tarihler arası fark         |
+| `Duration`      | Zaman aralıkları            |
+
+---
+
+### 🔍 Örnekler
+
+#### 🗓️ `LocalDate`
+
+```java
+import java.time.LocalDate;
+
+LocalDate today = LocalDate.now();
+LocalDate birthday = LocalDate.of(1990, 5, 15);
+System.out.println(today); // 2025-06-18
+```
+
+#### 🕒 `LocalTime`
+
+```java
+import java.time.LocalTime;
+
+LocalTime now = LocalTime.now();
+System.out.println(now); // 17:04:33.123456
+```
+
+#### 📅 `LocalDateTime`
+
+```java
+import java.time.LocalDateTime;
+
+LocalDateTime now = LocalDateTime.now();
+System.out.println(now); // 2025-06-18T17:05:00
+```
+
+#### 🌍 `ZonedDateTime`
+
+```java
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+
+ZonedDateTime istTime = ZonedDateTime.now(ZoneId.of("Europe/Istanbul"));
+System.out.println(istTime);
+```
+
+#### 🧮 Tarih farkı: `Period` ve `Duration`
+
+```java
+import java.time.*;
+import java.time.temporal.ChronoUnit;
+
+LocalDate start = LocalDate.of(2020, 1, 1);
+LocalDate end = LocalDate.now();
+Period period = Period.between(start, end);
+
+System.out.println(period.getYears()); // Yıl farkı
+System.out.println(ChronoUnit.DAYS.between(start, end)); // Gün farkı
+```
+
+---
+
+## 🔁 `Date` ↔ `LocalDateTime` Dönüştürme
+
+```java
+// Date → LocalDateTime
+Date date = new Date();
+LocalDateTime ldt = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+
+// LocalDateTime → Date
+Date date2 = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+```
+
+---
+
+## 📚 Tavsiye Edilen Kullanım
+
+* Modern projelerde **`java.time` (Java 8+)** kullanın.
+* Eski projelerle uyumluluk gerekiyorsa `Date` → `LocalDateTime` dönüşümleri yapın.
+* Thread-safe, test edilebilir ve anlaşılır API sağlar.
+
+---
+
+## 🎓 Özet Tablo
+
+| Amaç                | Eski Sınıf (`java.util`) | Yeni Sınıf (`java.time`) |
+| ------------------- | ------------------------ | ------------------------ |
+| Sadece tarih        | `Date`                   | `LocalDate`              |
+| Sadece saat         | `Date`                   | `LocalTime`              |
+| Tarih + saat        | `Date`, `Calendar`       | `LocalDateTime`          |
+| Zaman dilimli tarih | Yok                      | `ZonedDateTime`          |
+| Epoch time          | `Date.getTime()`         | `Instant`                |
+| Aralık hesaplama    | Elle yapılırdı           | `Period`, `Duration`     |
+
+---
+
+
+
+
+## Java Core Exception
+```sh 
+
+```
+---
+
+
+Tabii Hamit Hocam, Java'da **Exception (istisna)** kavramı çok temel ve kritik bir konudur. Hataları yönetmenin yapısal ve kontrollü bir yoludur. Şimdi detaylıca, örneklerle birlikte adım adım inceleyelim:
+
+---
+
+## ✅ 1. Exception Nedir?
+
+**Exception**, program çalışırken meydana gelen **olağan dışı durumları** temsil eder. Bu durumlar programın normal akışını bozar. Java'da bu hatalar nesne olarak temsil edilir.
+
+> 📌 Örnek: Bir sayıyı sıfıra bölmeye çalışmak, bir dosyaya erişememek, bir dizinin sınırları dışında erişim sağlamak gibi.
+
+---
+
+## ✅ 2. Exception Kavramının Amacı Nedir?
+
+* Hataları yönetilebilir hale getirmek
+* Programın çökmesini önlemek
+* Kullanıcıya anlamlı mesajlar göstermek
+* Kodun güvenliğini ve okunabilirliğini artırmak
+
+---
+
+## ✅ 3. Exception Hiyerarşisi
+
+```text
+java.lang.Object
+   ↳ java.lang.Throwable
+        ↳ java.lang.Error         (Sistem hataları)
+        ↳ java.lang.Exception     (Program hataları)
+              ↳ java.lang.RuntimeException (Unchecked)
+```
+
+### 📌 İki Ana Tür:
+
+| Tür                   | Açıklama                                                               |
+| --------------------- | ---------------------------------------------------------------------- |
+| `Checked Exception`   | Derleme zamanında kontrol edilir, `try-catch` veya `throws` zorunludur |
+| `Unchecked Exception` | Çalışma zamanında ortaya çıkar, `try-catch` zorunlu değildir           |
+
+---
+
+## ✅ 4. Checked Exception Nedir?
+
+Java tarafından zorunlu tutulur. Derleyici sizi uyarır.
+
+### 📌 Örnekler:
+
+* `IOException` → dosya erişimi
+* `SQLException` → veritabanı hataları
+* `ParseException` → tarih dönüşüm hatası
+
+```java
+import java.io.*;
+
+public class CheckedExample {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("dosya.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("Dosya bulunamadı: " + e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+## ✅ 5. Unchecked Exception Nedir?
+
+Derleyici sizi zorlamaz, ama çalışma zamanında program çökerse hatayı gösterir.
+
+### 📌 Örnekler:
+
+* `ArithmeticException` → 10 / 0
+* `NullPointerException`
+* `ArrayIndexOutOfBoundsException`
+* `NumberFormatException`
+
+```java
+public class UncheckedExample {
+    public static void main(String[] args) {
+        String text = null;
+        System.out.println(text.length()); // NullPointerException
+    }
+}
+```
+
+---
+
+## ✅ 6. Try-Catch-Finally Yapısı
+
+```java
+try {
+    // Hata çıkarabilecek kodlar
+} catch (ExceptionType e) {
+    // Hata yakalandığında çalışır
+} finally {
+    // Her durumda çalışır (temizlik işleri için)
+}
+```
+
+### 📌 Örnek:
+
+```java
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Sıfıra bölme hatası: " + e.getMessage());
+} finally {
+    System.out.println("Her durumda çalışır.");
+}
+```
+
+---
+
+## ✅ 7. throws Anahtar Kelimesi
+
+Bir metodun hata fırlatabileceğini belirtir.
+
+```java
+public static void dosyaOku() throws IOException {
+    FileReader fr = new FileReader("yok.txt");
+}
+```
+
+---
+
+## ✅ 8. throw Anahtar Kelimesi
+
+Kendi exception’ınızı fırlatmak için kullanılır.
+
+```java
+public static void kontrolEt(int yas) {
+    if (yas < 18) {
+        throw new IllegalArgumentException("18 yaşından küçük!");
+    }
+}
+```
+
+---
+
+## ✅ 9. Çoklu Catch Kullanımı
+
+```java
+try {
+    // kod
+} catch (IOException | SQLException e) {
+    e.printStackTrace();
+}
+```
+
+Veya klasik biçimle:
+
+```java
+try {
+    // kod
+} catch (IOException e) {
+    // IO hatası
+} catch (SQLException e) {
+    // DB hatası
+}
+```
+
+---
+
+## ✅ 10. Kendi Özel Exception Sınıfını Yazmak
+
+```java
+public class YasGecersizException extends Exception {
+    public YasGecersizException(String mesaj) {
+        super(mesaj);
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        try {
+            int yas = 15;
+            if (yas < 18) {
+                throw new YasGecersizException("Yaş 18'den küçük!");
+            }
+        } catch (YasGecersizException e) {
+            System.out.println("Özel hata: " + e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+## ✅ 11. finally Bloğunun Kullanımı
+
+`finally` bloğu, **exception çıksa da çıkmasa da** mutlaka çalışır.
+
+```java
+try {
+    int a = 10 / 2;
+} catch (ArithmeticException e) {
+    System.out.println("Hata var");
+} finally {
+    System.out.println("Bu blok her zaman çalışır.");
+}
+```
+
+---
+
+## ✅ 12. try-with-resources (Java 7+)
+
+`AutoCloseable` arabirimini kullanan nesneler için otomatik kapanma sağlar.
+
+```java
+try (BufferedReader br = new BufferedReader(new FileReader("data.txt"))) {
+    System.out.println(br.readLine());
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+---
+
+## 🎯 Özet Tablo
+
+| Özellik               | Açıklama                                                            |
+| --------------------- | ------------------------------------------------------------------- |
+| `Checked Exception`   | Derleyici hatayı yakalamanızı ister (`IOException`, `SQLException`) |
+| `Unchecked Exception` | Runtime’da çıkar, `try-catch` zorunlu değil                         |
+| `throw`               | Exception fırlatır                                                  |
+| `throws`              | Hata fırlatabileceğini belirtir                                     |
+| `try-catch-finally`   | Hataları yakalar ve yönetir                                         |
+| `finally`             | Her durumda çalışır                                                 |
+| `try-with-resources`  | Otomatik kaynak kapatma sağlar                                      |
+
+---
+
+
+
+
+
+

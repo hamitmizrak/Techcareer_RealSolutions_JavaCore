@@ -1,3 +1,4 @@
+
 ## Java Core Method
 ```sh 
 

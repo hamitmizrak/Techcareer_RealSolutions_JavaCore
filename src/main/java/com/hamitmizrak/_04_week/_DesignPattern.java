@@ -1,4 +1,4 @@
 package com.hamitmizrak._04_week;
 
-public class _01_Enum {
+public class _DesignPattern {
 }
