@@ -61,6 +61,21 @@
 
     <!-- start dependencies-->
     <dependencies>
+
+       <!-- JMH (Java Microbenchmark Harness)
+        Gerçek ölçümle kıyaslayan -->
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.37</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.37</version>
+        </dependency>
+
         <!--@LogExecution (_02_Reflection-->
         <!-- SLF4J API (Logging için) -->
         <dependency>
@@ -137,10 +152,20 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <!--
+                    JMH (Java Microbenchmark Harness)
+                    Gerçek ölçümle kıyaslayan
+                    -->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.openjdk.jmh</groupId>
+                            <artifactId>jmh-generator-annprocess</artifactId>
+                            <version>1.37</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
     </build>
     <!-- end build-->
-
 </project>
