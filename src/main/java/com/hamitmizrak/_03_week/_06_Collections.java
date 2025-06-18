@@ -1,4 +1,4 @@
 package com.hamitmizrak._03_week;
 
-public class _01_Array {
+public class _06_Collections {
 }

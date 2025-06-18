@@ -1,4 +1,4 @@
 package com.hamitmizrak._03_week;
 
-public class _11_InnerClass {
+public class _02_InnerClass {
 }
