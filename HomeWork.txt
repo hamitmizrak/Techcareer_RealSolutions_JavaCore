@@ -41,7 +41,6 @@
 2.25- Java8 gelen özellikler nelerdir ?
 
 
-
 ###########################################################
 # 2.HAFTA
 2.1- parametre ile argüman arasındaki fark ?
@@ -51,3 +50,5 @@
 2.1 Integer.valueOf("44") ile Integer.parseInt("44") bunlar arasındaki farklar ?
 
 2.1 isEmpty() - isBlank()
+
+2.1 For ile While arasındaki fark ?
