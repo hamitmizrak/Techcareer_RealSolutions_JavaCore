@@ -1,5 +1,16 @@
 package com.hamitmizrak._02_week;
 
+/**
+ Access Modifier(Erişim belirleyiciler) public, private, default, protected çağırırken performansı nasıl etkiler ?
+
+ Java derleyiciler(Javac) kaynak kodu derlerken erişim belirleyicilerin derlenmesinde bytecode içinde metadata olarak eklendiğinden JVM bu metodun yada alanın kontroluünü sağlar.
+ Bundan dolayı:  JVM doğrudan çağırıyor (invokevirtual)
+ Ancak Reflection(Yansımda) kullanan private erişimiden performans metriğinden değişim söz konusudur.
+
+
+ Erişim belirleticin çağrılmasında çağrı hızınını etkilemez ancak instance oluşturulduğundan dolayı (constructor default değerlerin) yüklenmesinden dolayı bir miktar performans kaybı yaşamabilir.
+  */
+
 public class _06_1_Method {
 
     // 1-) Parametresiz Returnsuz
