@@ -21,6 +21,7 @@ public class _07_Conditional_4_SwitchCase {
     }
 
     public static void conditional2(int number) {
+
         switch (number){
             case 0:
                 System.out.println("Sayı sıfır");
