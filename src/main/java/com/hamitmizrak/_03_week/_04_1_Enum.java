@@ -14,7 +14,6 @@ for Examples: Günler, aylar, rol modellemerinde
  */
 public enum _04_1_Enum {
     PAZARTESI,SALI,CARSAMBA,PERSEMBE,CUMA,CUMARTESI,PAZAR
-
 }
 
 // PSVM
@@ -25,6 +24,7 @@ class MainEnum{
         String data= days.toString();
         System.out.println(data);
         System.out.println(days.ordinal());
+
     }
 }
 
