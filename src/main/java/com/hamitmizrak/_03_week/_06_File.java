@@ -1,4 +1,4 @@
 package com.hamitmizrak._03_week;
 
-public class _01_Enum {
+public class _06_File {
 }

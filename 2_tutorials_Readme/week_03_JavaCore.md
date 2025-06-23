@@ -1,6 +1,0 @@
-
-## Java Core Method
-```sh 
-
-```
----

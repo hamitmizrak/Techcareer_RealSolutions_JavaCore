@@ -1,13 +1,11 @@
-şimdi `if-else` ve `switch-case` yapılarının performansını **gerçekçi bir şekilde** ölçmek için **JMH (Java Microbenchmark Harness)** kullanarak bir benchmark örneği hazırlayacağım.
+`if-else` ve `switch-case` yapılarının performansını **gerçekçi bir şekilde** ölçmek için **JMH (Java Microbenchmark Harness)** kullanarak bir benchmark örneği hazırlayacağım.
 
 ---
 
 ## ✅ 1. Nedir Bu JMH?
-
 * Oracle’ın resmi mikro benchmark kütüphanesidir.
 * JIT optimizasyonlarını hesaba katar.
 * `System.nanoTime()` ile yapılan ölçümler amatör seviyedeyken, **JMH gerçek profesyonel seviyede** ölçüm sağlar.
-
 ---
 
 ## ✅ 2. Maven ile Kurulum

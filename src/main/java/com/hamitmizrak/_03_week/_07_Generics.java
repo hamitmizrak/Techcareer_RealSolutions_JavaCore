@@ -1,4 +1,4 @@
 package com.hamitmizrak._03_week;
 
-public class _05_Generics {
+public class _07_Generics {
 }
