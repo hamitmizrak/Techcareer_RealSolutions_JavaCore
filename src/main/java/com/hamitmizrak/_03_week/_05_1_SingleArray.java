@@ -1,55 +1,70 @@
 package com.hamitmizrak._03_week;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
 
-// primitive type kullanabiliriz.
+// primitive type veya wrapper kullanabiliriz.
+// Collections: Sadece Wrapper
 public class _05_1_SingleArray {
 
     public static void main(String[] args) {
 
-        int[] array= new int[9];
-        array[0]=2;
-        array[1]=1;
-        array[2]=3;
-        array[3]=4;
-        array[4]=7;
-        array[5]=6;
-        array[6]=5;
-        // array[7]=8; // eklenmeyen elemana = 0
-        array[8]=9;
+        int[] data= new int[9];
+        data[0]=2;
+        data[1]=1;
+        data[2]=3;
+        data[3]=4;
+        data[4]=7;
+        data[5]=6;
+        data[6]=5;
+        // data[7]=8; // eklenmeyen elemana = 0
+        data[8]=9;
 
         // Array Metotları
-        System.out.println("Kaç tane Eleman:" +array.length);
-        System.out.println(array[0]);
-        System.out.println(array[7]);
+        System.out.println("Kaç tane Eleman:" +data.length);
+        System.out.println(data[0]);
+        System.out.println(data[7]);
 
         // Hash Code
-        System.out.println("Hash Code: "+array.hashCode());
+        System.out.println("Hash Code: "+data.hashCode());
 
         // for döngüsü (Iterative)
-        for (int i = 0; i <array.length ; i++) {
-            System.out.print(array[i]+" ");
+        System.out.println("\n*** for Iterative ***");
+        for (int i = 0; i <data.length ; i++) {
+            System.out.print(data[i]+" ");
         }
 
-        System.out.println("\n*** foreach isimsel ***");
         // foreach isimsel
-        for( int temp : array ){
+        System.out.println("\n*** foreach isimsel ***");
+        for( int temp : data ){
             System.out.print(temp+" ");
         }
 
-        System.out.println("\n*** java 8 forEach ***");
-        // Java 8 Stream forEach
-
-        System.out.println("\n*** foreach sorting ***");
         // Sıralama
-        Arrays.sort(array);
-        for( int temp : array ){
+        System.out.println("\n*** foreach sorting ***");
+        Arrays.sort(data);
+        for( Integer temp : data ){
             System.out.print(temp+" ");
         }
 
         // Clone
+        System.out.println("\n***clone***");
+        int[] kopyalama= data.clone();
+        System.out.println("\noriginal "+data[0]);
+        System.out.println("kopya "+kopyalama[0]);
 
         // Equals
+        System.out.println("\n*** equals ***");
+        boolean isEquals= Arrays.equals(data,kopyalama);
+        System.out.println("original == clone: "+isEquals);
+
+        // Arrays.toString
+        System.out.println("\n*** toString ***");
+        System.out.println(Arrays.toString(kopyalama));
+        System.out.println(Arrays.toString(kopyalama).substring(0,2));
+
+        // Arrays.copyOf
 
     }
 }

@@ -16,7 +16,7 @@ public class _05_2_SingleArray {
         // Hash Code
         System.out.println("Hash Code: "+array.hashCode());
 
-        //
+        // Object
 
     }
 }

@@ -52,3 +52,7 @@
 2.1 isEmpty() - isBlank()
 
 2.1 For ile While arasındaki fark ?
+
+###########################################################
+# 3.HAFTA
+3.1 - Javadaki Array konusunda clone verisini değiştirdiğimizde original veri değişir mi ?
