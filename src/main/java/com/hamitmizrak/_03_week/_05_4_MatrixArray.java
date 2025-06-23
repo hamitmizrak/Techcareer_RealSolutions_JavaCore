@@ -4,8 +4,11 @@ import com.hamitmizrak.utilty.SpecialColor;
 
 public class _05_4_MatrixArray {
 
-    public static void main(String[] args) {
+    // static
+    private static int counter =0;
 
+    public static void main(String[] args) {
+        // Matrix
         int[][] matrix= new int[3][3]; // 3*3 = 9
         matrix[0][0]=1;
         matrix[0][1]=2;
@@ -35,13 +38,18 @@ public class _05_4_MatrixArray {
             System.out.println();
         }
 
+
+        // 3 lü for  10*10*10 = 1000
         for (int i = 0; i < 10 ; i++) {
             for (int j = 0; j < 10; j++) {
                 for (int k = 0; k < 10; k++) {
-                    System.out.println("data");
+                    counter++;
+                    System.out.println("sayac: "+counter+" : data");
                 }
             }
         }
+
+        System.out.println("Toplam Döngü sayısı: "+counter);
 
     }
 }
