@@ -38,7 +38,6 @@ public class _05_4_MatrixArray {
             System.out.println();
         }
 
-
         // 3 lü for  10*10*10 = 1000
         for (int i = 0; i < 10 ; i++) {
             for (int j = 0; j < 10; j++) {
@@ -48,8 +47,6 @@ public class _05_4_MatrixArray {
                 }
             }
         }
-
         System.out.println("Toplam Döngü sayısı: "+counter);
-
     }
 }
