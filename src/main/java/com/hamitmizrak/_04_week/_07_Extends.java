@@ -1,4 +1,4 @@
 package com.hamitmizrak._04_week;
 
-public class _01_Thread {
+public class _07_Extends {
 }
