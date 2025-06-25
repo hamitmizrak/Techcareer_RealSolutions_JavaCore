@@ -465,7 +465,7 @@ public class Child extends Person {
         System.out.println(publicField);         // ✅ erişilebilir
         System.out.println(protectedField);      // ✅ erişilebilir (alt sınıf)
         // System.out.println(defaultField);     // ❌ HATA: farklı paket
-        // System.out.println(privateField);     // ❌ HATA: sadece Main1 içinde
+        // System.out.println(privateField);     // ❌ HATA: sadece Person içinde
     }
 }
 ```
@@ -631,7 +631,7 @@ public class Person implements Serializable {
     }
 
     public String toString() {
-        return "Main1{name='" + name + "', age=" + age + "}";
+        return "Person{name='" + name + "', age=" + age + "}";
     }
 }
 ```
@@ -824,7 +824,7 @@ Eğer IntelliJ IDEA'nın UID üretimini özelleştirmek istersen:
 Eğer elle üretmek istersen:
 
 ```bash
-serialver com.example.Main1
+serialver com.example.Person
 ```
 
 > Bu komut, `serialVersionUID`'yi sınıfın yapısına göre üretir.
