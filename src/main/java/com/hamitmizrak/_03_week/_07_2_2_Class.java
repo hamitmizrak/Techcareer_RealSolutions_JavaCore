@@ -42,7 +42,7 @@ public class _07_2_2_Class {
     // GETTER AND SETTER
 
     public static void main(String[] args) {
-        _07_2_2_Class aClass = _07_2_2_Class.builder()
+        /*_07_2_2_Class aClass = _07_2_2_Class.builder()
                 .name("Hamit")
                 .surname("Mızrak")
                 .build();
@@ -52,6 +52,6 @@ public class _07_2_2_Class {
         System.out.println(aClass);
 
         String result = aClass.fullName();
-        System.out.println(result);
+        System.out.println(result);*/
     }
 }

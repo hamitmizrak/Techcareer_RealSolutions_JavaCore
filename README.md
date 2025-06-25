@@ -13263,7 +13263,7 @@ class Person {
 
 public class DynamicObjectCreation {
     public static void main(String[] args) throws Exception {
-        // Person sınıfının class objesini al
+        // Main1 sınıfının class objesini al
         Class<?> clazz = Person.class;
 
         // Parametresiz Constructor ile nesne oluştur
