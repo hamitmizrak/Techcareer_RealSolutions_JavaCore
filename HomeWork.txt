@@ -56,3 +56,5 @@
 ###########################################################
 # 3.HAFTA
 3.1 - Javadaki Array konusunda clone verisini değiştirdiğimizde original veri değişir mi ?
+
+3.2 - Compile-Time(Derleme Zamanı) - Run-Time(Çalışma Zamanı) bunlar nelerdir  ? aralarındaki farklar ?
