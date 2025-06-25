@@ -7,6 +7,7 @@ import com.hamitmizrak.utilty.SpecialColor;
 // for example: Math.abs(-14)
 public class _01_Static {
 
+
     // Field (static)
     public static int counter = 0;
 

@@ -1,4 +1,4 @@
 package com.hamitmizrak._03_week;
 
-public class _08_1_Collections {
+public class _10_1_Java8 {
 }
