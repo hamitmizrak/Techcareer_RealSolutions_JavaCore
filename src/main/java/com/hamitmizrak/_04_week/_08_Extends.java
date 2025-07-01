@@ -1,4 +1,4 @@
 package com.hamitmizrak._04_week;
 
-public class _06_OOP {
+public class _08_Extends {
 }

@@ -1,4 +1,4 @@
 package com.hamitmizrak._04_week;
 
-public class _09_Interfaces {
+public class _06_1_Java8 {
 }

@@ -1,4 +1,4 @@
 package com.hamitmizrak._04_week;
 
-public class _10_Thread {
+public class _09_Abstract {
 }

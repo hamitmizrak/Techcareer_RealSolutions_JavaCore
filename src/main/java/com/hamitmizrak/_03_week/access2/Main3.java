@@ -1,6 +1,6 @@
-package com.hamitmizrak.access2;
+package com.hamitmizrak._03_week.access2;
 
-import com.hamitmizrak.access1.Person;
+import com.hamitmizrak._03_week.access1.Person;
 
 public class Main3 {
     // PSVM

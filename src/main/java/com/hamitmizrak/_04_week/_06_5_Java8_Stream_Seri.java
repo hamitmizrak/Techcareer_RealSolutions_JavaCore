@@ -1,6 +1,6 @@
 package com.hamitmizrak._04_week;
 
-public class _11_5_Java8_Stream_Seri {
+public class _06_5_Java8_Stream_Seri {
 }
 
 // Java Core + Design pattern, Clean Code, Software prensible

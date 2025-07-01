@@ -1,4 +1,4 @@
-package com.hamitmizrak.access1;
+package com.hamitmizrak._03_week.access1;
 
 public class Person {
 
