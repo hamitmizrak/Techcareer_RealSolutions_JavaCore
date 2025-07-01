@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 // NOT: Aşağıdaki field alanalarında final private vardır.
 // eg:  private final String name;
-public record _02_1_Record(
+public record _02_Record(
         // Field
         String name,
         String surname,
@@ -34,7 +34,7 @@ public record _02_1_Record(
     // Constructor yapısını ekleyemeyiz ancak validation için;
     // Canonical Constructor (Otomatik gelen constructor'ı override edebiliriz)
     // Amaçımız Validation: auto Control
-    public _02_1_Record{
+    public _02_Record {
         if(name ==null || name.isBlank()){
             throw new IllegalArgumentException("İsim boş geçilemez");
         }
@@ -53,8 +53,8 @@ public record _02_1_Record(
     }
 
     // static factory method
-    public static _02_1_Record of(String name, String surname, String email){
-        return new _02_1_Record(name,surname,441L, email, LocalDate.now(), true);
+    public static _02_Record of(String name, String surname, String email){
+        return new _02_Record(name,surname,441L, email, LocalDate.now(), true);
     }
 
     // toString
@@ -74,7 +74,7 @@ public record _02_1_Record(
     public static void main(String[] args) {
 
         // Instance
-        _02_1_Record recordData1 = new _02_1_Record(
+        _02_Record recordData1 = new _02_Record(
                 "Hamit",
                 "Mızrak", // Validation olarak "" bırakırsak istisna fırlatıyor
                 444L,
@@ -87,7 +87,7 @@ public record _02_1_Record(
         System.out.println(recordData1.name);
 
         // static factory method
-        _02_1_Record recordData2= _02_1_Record.of("Hamit","Mızrak","hamitmizrak@gmail.com");
+        _02_Record recordData2= _02_Record.of("Hamit","Mızrak","hamitmizrak@gmail.com");
         System.out.println(recordData2);
         System.out.println(recordData1.equals(recordData2));
     }
