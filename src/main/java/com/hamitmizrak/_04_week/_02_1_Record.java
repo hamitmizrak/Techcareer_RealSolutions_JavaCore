@@ -9,6 +9,7 @@ import java.time.LocalDate;
  * record’da ekstra getter/setter yazılamaz.
  * Alanlara final demeye gerek yoktur, zaten sabittir.
  * Record içinde Constructor'ı Overloading yoktur. ===> static factory method
+ * Recortta setName() görmeyeceğiz bunun yerine name() görürüz.
  */
 
 // NOT: Aşağıdaki field alanalarında final private vardır.
@@ -75,7 +76,7 @@ public record _02_1_Record(
         // Instance
         _02_1_Record recordData1 = new _02_1_Record(
                 "Hamit",
-                "Mızrak",
+                "Mızrak", // Validation olarak "" bırakırsak istisna fırlatıyor
                 444L,
                 "hamitmizrak@gmail.com",
                 java.time.LocalDate.of(2025,7,1),
@@ -83,11 +84,11 @@ public record _02_1_Record(
 
         );
         System.out.println(recordData1);
+        System.out.println(recordData1.name);
 
         // static factory method
         _02_1_Record recordData2= _02_1_Record.of("Hamit","Mızrak","hamitmizrak@gmail.com");
         System.out.println(recordData2);
-
         System.out.println(recordData1.equals(recordData2));
     }
 }
