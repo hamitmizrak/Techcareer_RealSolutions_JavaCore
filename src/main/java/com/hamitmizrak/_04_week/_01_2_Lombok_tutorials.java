@@ -1,8 +1,6 @@
 package com.hamitmizrak._04_week;
 
 import lombok.*;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
 
 
 // LOMBOK
@@ -18,8 +16,8 @@ import lombok.extern.log4j.Log4j2;
 //@ToString
 //@EqualsAndHashCode
 
-//@NoArgsConstructor
-//@AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder  // Builder parametreli constructor eklemek zorundayız.
 //@Log4j
 //@Log4j2
