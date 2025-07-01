@@ -18,9 +18,9 @@ import lombok.extern.log4j.Log4j2;
 //@ToString
 //@EqualsAndHashCode
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
+@Builder  // Builder parametreli constructor eklemek zorundayız.
 //@Log4j
 //@Log4j2
 public class _01_2_Lombok_tutorials {
@@ -32,6 +32,10 @@ public class _01_2_Lombok_tutorials {
     private String surname;
     @NonNull
     private Long number;
+
+    // Default için: 1.şart Builder 2.Builder'de parametreli constructor
+    @Builder.Default
+    private boolean isLogin=true;
 
     public static void main(String[] args) {
         _01_2_Lombok_tutorials tutorials=  _01_2_Lombok_tutorials
