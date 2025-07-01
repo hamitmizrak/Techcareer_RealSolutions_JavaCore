@@ -1,6 +1,7 @@
 package com.hamitmizrak._04_week;
 
 import lombok.*;
+import lombok.experimental.Accessors;
 import lombok.experimental.FieldDefaults;
 
 
@@ -26,25 +27,33 @@ import lombok.experimental.FieldDefaults;
 
 @FieldDefaults(level = AccessLevel.PRIVATE) // Erişim belirleyeiclerden hepsini private yap
 // @SneakyThrows //
+@Accessors(chain = true, fluent = false) // ===> setName(...).setEmail(...) zincirleme setter
 public class _01_2_Lombok_tutorials {
 
     // Field
-    @NonNull String name;
-    @NonNull String surname;
-    @NonNull Long number;
+    @NonNull
+    String name;
+    @NonNull
+    String surname;
+    @NonNull
+    Long number;
 
     // Default için: 1.şart Builder 2.Builder'de parametreli constructor
     @Builder.Default
-    private boolean isLogin=true;
+    private boolean isLogin = true;
 
     // PSVM
     public static void main(String[] args) {
-        _01_2_Lombok_tutorials tutorials=  _01_2_Lombok_tutorials
+        _01_2_Lombok_tutorials tutorials = _01_2_Lombok_tutorials
                 .builder()
-                    .name("adı").surname("soyadı").number(44L)
+                .name("adı")
+                .surname("soyadı")
+                .number(44L)
                 .build();
+        System.out.println(tutorials);
 
-        //
+        // @Accessors
+        tutorials.setName("adı22").setSurname("soyadı22").setNumber(55L);
         System.out.println(tutorials);
     }
 }
