@@ -8,13 +8,19 @@ import lombok.extern.log4j.Log4j2;
 // LOMBOK
 @Getter
 @Setter
-//@RequiredArgsConstructor // Injection : Constructor
+@RequiredArgsConstructor // Injection : Constructor
+@ToString
+@EqualsAndHashCode
+//@Data = Aşağıdakileri yerine geçiyor.
+//@Getter
+//@Setter
+//@RequiredArgsConstructor
+//@ToString
+//@EqualsAndHashCode
+
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-
 @Builder
-@EqualsAndHashCode
 //@Log4j
 //@Log4j2
 public class _01_2_Lombok_tutorials {
@@ -26,7 +32,6 @@ public class _01_2_Lombok_tutorials {
     private String surname;
     @NonNull
     private Long number;
-
 
     public static void main(String[] args) {
         _01_2_Lombok_tutorials tutorials=  _01_2_Lombok_tutorials
