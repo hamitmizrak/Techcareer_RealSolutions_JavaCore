@@ -84,15 +84,54 @@ public class _04_4_File_Intermedia_2 {
     }
 
     /// ///////////////////////////////////////////////////////
+    ///
+    ///  Path NEW_PATH = Paths.get(newPath);
+    private static void newPath(Path NEW_PATH) throws IOException {
+        if (Files.notExists(NEW_PATH)) {
+            Files.createDirectories(NEW_PATH.getParent()); // Klasor yoksa oluştur
+            Files.createFile(NEW_PATH); // Dosya yoksa oluştur
+            System.out.println(SpecialColor.BLUE + "Dosya oluşturuldu " + SpecialColor.RESET + NEW_PATH);
+        } else {
+            System.out.println(SpecialColor.RED + "Dosya zaten mevcut " + SpecialColor.RESET + NEW_PATH);
+        }
+    }
+
     // DOSYA OLUŞTUR
     private static void createFile() throws IOException {
-        // Bu yolda, dosya var mı ? yoksa oluştur
-        if (Files.notExists(PATH)) {
-            Files.createDirectories(PATH.getParent()); // Klasor yoksa oluştur
-            Files.createFile(PATH); // Dosya yoksa oluştur
-            System.out.println(SpecialColor.BLUE + "Dosya oluşturuldu " + SpecialColor.RESET + PATH);
-        } else {
-            System.out.println(SpecialColor.RED + "Dosya zaten mevcut " + SpecialColor.RESET + PATH);
+        try {
+            Path filePath; // java.nio
+            System.out.println("Yeni bir path'i girmek istiyor musunuz ? evet/hayır");
+            String choise = scanner.nextLine().trim().toLowerCase();
+            if (choise.equals("evet")) {
+                // Kullanıcıdan yeni yol
+                String userPathDirectory,userPathFileName;
+                StringBuilder allPath= new StringBuilder();
+                System.out.println("Lütfen oluşturmak istediğiniz dosyanın dizi yolunu giriniz.\n 'C:\\logs\\'");
+                userPathDirectory = scanner.nextLine().trim();
+                System.out.println("Lütfen oluşturmak istediğiniz dosyanın dizi yolunu giriniz.\n 'deneme'");
+                userPathFileName = scanner.nextLine().trim();
+                allPath.append("./") .append(userPathDirectory).append("\\").append(userPathFileName).append(".txt");
+                // filePath = Paths.get(allPath.toString());
+                String newPath=allPath.toString();
+                Path NEW_PATH = Paths.get(newPath);
+                // 1.YOL
+                // Dosya var mı ?
+                /*if (Files.notExists(NEW_PATH)) {
+                    Files.createDirectories(NEW_PATH.getParent()); // Klasor yoksa oluştur
+                    Files.createFile(NEW_PATH); // Dosya yoksa oluştur
+                    System.out.println(SpecialColor.BLUE + "Dosya oluşturuldu " + SpecialColor.RESET + NEW_PATH);
+                } else {
+                    System.out.println(SpecialColor.RED + "Dosya zaten mevcut " + SpecialColor.RESET + NEW_PATH);
+                }*/
+
+                // 2.YOL
+                newPath(NEW_PATH);
+            } else {
+                // Bu yolda, dosya var mı ? yoksa oluştur
+                newPath(PATH);
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
