@@ -1,4 +1,4 @@
-package com.hamitmizrak._04_week;
+package com.hamitmizrak._05_week;
 
 public class _05_4_Java8_Stream_Seri {
 }

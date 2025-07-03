@@ -1,4 +1,4 @@
-package com.hamitmizrak._05_week_Project;
+package com.hamitmizrak._06_week;
 
 public class _01_FunctionProgramming {
 }

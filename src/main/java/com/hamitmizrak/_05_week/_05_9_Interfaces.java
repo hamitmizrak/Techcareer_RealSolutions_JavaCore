@@ -1,9 +1,9 @@
-package com.hamitmizrak._05_week_Project;
+package com.hamitmizrak._05_week;
 
 // interface public ve default Access Modifier(ERişim belirleyici olarak)
 // keyword: implements
 // istediğimiz kadar interface ekleyebiliriz.
-public interface _10_Interfaces {
+public interface _05_9_Interfaces {
     void create();
     void list();
     void delete();
@@ -12,7 +12,7 @@ public interface _10_Interfaces {
 }
 
 // CLASS
-class Deneme implements _10_Interfaces{
+class Deneme implements _05_9_Interfaces {
 
     @Override
     public void create() {
@@ -41,7 +41,7 @@ class Deneme implements _10_Interfaces{
 }
 
 //
-class OtherClass implements _10_Interfaces{
+class OtherClass implements _05_9_Interfaces {
 
     @Override
     public void create() {
