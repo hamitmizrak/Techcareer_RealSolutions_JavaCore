@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;  //  ==> Kullanıcıdan girdi almak için
 
 public class _04_4_File_Intermedia_2 {
@@ -21,6 +24,7 @@ public class _04_4_File_Intermedia_2 {
     private static final Path PATH = Paths.get(DEFAULT_PATH);
 
     /// ////////////////////////////////////////////////////////
+    // Constructor
     public _04_4_File_Intermedia_2() throws IOException {
         createFile();
     }
@@ -33,7 +37,7 @@ public class _04_4_File_Intermedia_2 {
         System.out.println("2- Dosya Yaz");
         System.out.println("3- Dosya Oku");
         System.out.println("4- Dosya Kopyala");
-        System.out.println("5- Dosya Taşı");
+        System.out.println("5- Dosya İsmini Taşı");
         System.out.println("6- Dosya Sil");
         System.out.println("7- Dosya Detayları");
         System.out.println("0- Çıkış");
@@ -94,7 +98,7 @@ public class _04_4_File_Intermedia_2 {
 
     // DOSYA YAZ
     private static void writeFile() throws IOException {
-        System.out.print(SpecialColor.YELLOW + " Dosyaya yazılacak metin: " + SpecialColor.RESET);
+        System.out.print(SpecialColor.YELLOW + "Dosyaya yazılacak metin: " + SpecialColor.RESET);
         String text = scanner.nextLine();
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(PATH, StandardOpenOption.APPEND)) {
             bufferedWriter.write(text);
@@ -153,6 +157,20 @@ public class _04_4_File_Intermedia_2 {
     }
 
     /// /////////////////////////////////////////////
+    // LogDate
+    private static String logDate() {
+        // 1.YOL
+        /*
+        Locale locale = new Locale("tr","TR");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss zzzz",locale);
+        Date date = new Date();
+        String changeToDate = simpleDateFormat.format(date).toString();
+        return  changeToDate;
+        */
+        // 2.YOL
+        return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss zzzz", new Locale("tr", "TR")).format(new Date()).toString();
+    }
+
     // Uzantı ayrımak için yardımcı metot
     private static String getFileExtension(String fileName) {
         int lastIndex = fileName.lastIndexOf(".");
@@ -192,17 +210,15 @@ public class _04_4_File_Intermedia_2 {
             System.out.println("Gizli: " + file.isHidden());
             System.out.println("Dosya mı: " + file.isFile());
             System.out.println("Dizin mi(Klasör mü): " + file.isDirectory());
-            System.out.println("Gizli: " + file.isHidden());
             System.out.println("Boş alan (GB): " + toHumanReadable(file.getFreeSpace()));
             System.out.println("Toplam alan (GB): " + toHumanReadable(file.getTotalSpace()));
-            System.out.println("Toplam: " + file.getName());
         }
     }
 
     /// /////////////////////////////////////////////////////
     // PSVM
     public static void main(String[] args) throws IOException {
-        allAction();
+        new _04_4_File_Intermedia_2().allAction();
     } // end PSVM
 
 } //end _04_4_File_Intermedia_2
