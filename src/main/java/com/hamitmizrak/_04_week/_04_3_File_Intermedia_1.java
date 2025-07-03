@@ -1,25 +1,23 @@
 package com.hamitmizrak._04_week;
 
 import com.hamitmizrak.utilty.SpecialColor;
-import lombok.extern.log4j.Log4j2;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
 // LOMBOK
 //@Log4j2
-public class _04_3_File_Intermedia {
+public class _04_3_File_Intermedia_1 {
 
     // Const
     private final static String FILE_PATH = "E:\\1_Kodlar\\Java Se\\Techcareer_RealSolutions_JavaCore\\log.txt";
     private final static Scanner scanner = new Scanner(System.in);
 
     // Parametresiz Constructor
-    public _04_3_File_Intermedia() {
+    public _04_3_File_Intermedia_1() {
         logFileCreate();
     }
 
