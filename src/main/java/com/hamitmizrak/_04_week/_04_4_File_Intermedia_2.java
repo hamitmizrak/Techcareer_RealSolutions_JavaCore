@@ -1,7 +1,13 @@
 package com.hamitmizrak._04_week;
 
+import com.hamitmizrak.utilty.SpecialColor;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;  // ==> NIO(Yeni dosya sistem API'leri için)
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;  //  ==> Kullanıcıdan girdi almak için
 
 public class _04_4_File_Intermedia_2 {
@@ -41,7 +47,7 @@ public class _04_4_File_Intermedia_2 {
 
 
     // Döngüsel Method
-    public static void allAction() {
+    public static void allAction() throws IOException {
         while (true) {
             // Kullanıcı isteği
             menu();
@@ -51,6 +57,7 @@ public class _04_4_File_Intermedia_2 {
 
             // Dosya İşlemleri
             switch (choise) {
+                // Lambda expression : isimsiz metot gibi düşünebiliriz.
                 case 1 -> createFile();  // Dosya oluştur
                 case 2 -> writeFile();  // Dosya yaz
                 case 3 -> readFromFile();  // Dosya oku
@@ -63,7 +70,35 @@ public class _04_4_File_Intermedia_2 {
         }
     }
 
+    /// ///////////////////////////////////////////////////////
+    // DOSYA OLUŞTUR
+    private static void createFile() throws IOException{
+        // Bu yolda, dosya var mı ? yoksa oluştur
+        if(Files.notExists(PATH)){
+            Files.createDirectories(PATH.getParent()); // Klasor yoksa oluştur
+            Files.createFile(PATH); // Dosya yoksa oluştur
+            System.out.println(SpecialColor.BLUE+ "Dosya oluşturuldu "+ SpecialColor.RESET+PATH);
+        }else{
+            System.out.println(SpecialColor.RED+ "Dosya zaten mevcut "+ SpecialColor.RESET+PATH);
+        }
+    }
 
+
+    // DOSYA YAZ
+    private static void writeFile() throws IOException{
+        System.out.print(SpecialColor.YELLOW+ " Dosyaya yazılacak metin: "+SpecialColor.RESET);
+        String text = scanner.nextLine();
+        try(BufferedWriter bufferedWriter = Files.newBufferedWriter(PATH, StandardOpenOption.APPEND)){
+            bufferedWriter.write(text);
+            bufferedWriter.newLine(); // Satır atlar
+            System.out.println(SpecialColor.PURPLE+ "Yazma İşlemi başarılı"+SpecialColor.RESET);
+        }catch (IOException ioException){
+            System.out.println("Yazma Hatası: "+SpecialColor.RED+ioException.getMessage());
+        }
+    }
+
+
+     /// /////////////////////////////////////////////////////
     // PSVM
     public static void main(String[] args) {
         allAction();

@@ -35,7 +35,6 @@ public class _04_3_File_Intermedia_1 {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-
     } // end logFileCreate
 
     // LogDate
