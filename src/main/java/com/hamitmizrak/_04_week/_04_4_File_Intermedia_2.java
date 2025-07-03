@@ -3,11 +3,10 @@ package com.hamitmizrak._04_week;
 import com.hamitmizrak.utilty.SpecialColor;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;  // ==> NIO(Yeni dosya sistem API'leri için)
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
+import java.text.DecimalFormat;
 import java.util.Scanner;  //  ==> Kullanıcıdan girdi almak için
 
 public class _04_4_File_Intermedia_2 {
@@ -21,6 +20,12 @@ public class _04_4_File_Intermedia_2 {
     // Path: java.nio.file paketten gelen yol nesnesidir,  modern API'ler için kullanmaktayız
     private static final Path PATH = Paths.get(DEFAULT_PATH);
 
+    /// ////////////////////////////////////////////////////////
+    public _04_4_File_Intermedia_2() throws IOException {
+        createFile();
+    }
+
+    /// ////////////////////////////////////////////////////////
     // Kullanıcıdan Seçim verisi almak
     private static void menu() {
         System.out.println("\n=== DOSYA İŞLEMLERİ===");
@@ -45,7 +50,6 @@ public class _04_4_File_Intermedia_2 {
         }
     }
 
-
     // Döngüsel Method
     public static void allAction() throws IOException {
         while (true) {
@@ -58,50 +62,147 @@ public class _04_4_File_Intermedia_2 {
             // Dosya İşlemleri
             switch (choise) {
                 // Lambda expression : isimsiz metot gibi düşünebiliriz.
-                case 1 -> createFile();  // Dosya oluştur
-                case 2 -> writeFile();  // Dosya yaz
-                case 3 -> readFromFile();  // Dosya oku
-                case 4 -> copyFile();  // Dosya kopyala
-                case 5 -> moveFile();  // Dosya taşı
-                case 6 -> deleteFile();  // Dosya sil
-                case 7 -> showFileDetails();  // Dosya detaylarını göster
-                case 0 -> logout();  // Sistemden Çıkış
+                case 1 -> createFile();         // Dosya oluştur
+                case 2 -> writeFile();         // Dosya yaz
+                case 3 -> readFromFile();      // Dosya oku
+                case 4 -> copyFile();          // Dosya kopyala
+                case 5 -> moveFile();          // Dosya taşı
+                case 6 -> deleteFile();        // Dosya sil
+                case 7 -> showFileDetails();   // Dosya detaylarını göster
+                case 0 -> {                     // Sistemden Çıkış
+                    System.out.println(SpecialColor.RED + " Çıkış yapılıyor");
+                    // System.exit(0);
+                    return; // Program çık
+                }
+                default -> System.out.println("Geçersiz Seçim !!!!");
             }
         }
     }
 
     /// ///////////////////////////////////////////////////////
     // DOSYA OLUŞTUR
-    private static void createFile() throws IOException{
+    private static void createFile() throws IOException {
         // Bu yolda, dosya var mı ? yoksa oluştur
-        if(Files.notExists(PATH)){
+        if (Files.notExists(PATH)) {
             Files.createDirectories(PATH.getParent()); // Klasor yoksa oluştur
             Files.createFile(PATH); // Dosya yoksa oluştur
-            System.out.println(SpecialColor.BLUE+ "Dosya oluşturuldu "+ SpecialColor.RESET+PATH);
-        }else{
-            System.out.println(SpecialColor.RED+ "Dosya zaten mevcut "+ SpecialColor.RESET+PATH);
+            System.out.println(SpecialColor.BLUE + "Dosya oluşturuldu " + SpecialColor.RESET + PATH);
+        } else {
+            System.out.println(SpecialColor.RED + "Dosya zaten mevcut " + SpecialColor.RESET + PATH);
         }
     }
-
 
     // DOSYA YAZ
-    private static void writeFile() throws IOException{
-        System.out.print(SpecialColor.YELLOW+ " Dosyaya yazılacak metin: "+SpecialColor.RESET);
+    private static void writeFile() throws IOException {
+        System.out.print(SpecialColor.YELLOW + " Dosyaya yazılacak metin: " + SpecialColor.RESET);
         String text = scanner.nextLine();
-        try(BufferedWriter bufferedWriter = Files.newBufferedWriter(PATH, StandardOpenOption.APPEND)){
+        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(PATH, StandardOpenOption.APPEND)) {
             bufferedWriter.write(text);
             bufferedWriter.newLine(); // Satır atlar
-            System.out.println(SpecialColor.PURPLE+ "Yazma İşlemi başarılı"+SpecialColor.RESET);
-        }catch (IOException ioException){
-            System.out.println("Yazma Hatası: "+SpecialColor.RED+ioException.getMessage());
+            System.out.println(SpecialColor.PURPLE + "Yazma İşlemi başarılı" + SpecialColor.RESET);
+        } catch (IOException ioException) {
+            System.out.println("Yazma Hatası: " + SpecialColor.RED + ioException.getMessage());
         }
     }
 
-
-     /// /////////////////////////////////////////////////////
-    // PSVM
-    public static void main(String[] args) {
-        allAction();
+    // DOSYA OKU
+    private static void readFromFile() throws IOException {
+        try {
+            Files.lines(PATH).forEach(System.out::println); // Java 8 Stream API Kullanımı
+        } catch (IOException ioException) {
+            System.out.println("Yazma Hatası: " + SpecialColor.RED + ioException.getMessage());
+        }
     }
+
+    // DOSYA KOPYALA (aynı klasörde dosya yaz)
+    private static void copyFile() throws IOException {
+        // Var olan dosyayı isim değiştirme
+        Path replaceFile = Paths.get(DEFAULT_PATH.replace(".txt", "_clone.txt"));
+
+        // Üzerine yaz
+        try {
+            Files.copy(PATH, replaceFile, StandardCopyOption.REPLACE_EXISTING); // Üzerine yaz
+            System.out.println("Dosya Kopyalandı: " + replaceFile);
+        } catch (IOException ioException) {
+            System.out.println("Dosya Kopyalama Hatası: " + SpecialColor.RED + ioException.getMessage());
+        }
+    }
+
+    // DOSYA KOPYALA (aynı klasörde dosya yaz)
+    private static void moveFile() throws IOException {
+        // Var olan dosyayı isim değiştirme
+        Path replaceFile = Paths.get(DEFAULT_PATH.replace(".txt", "_moved.txt"));
+
+        // Üzerine yaz
+        try {
+            Files.move(PATH, replaceFile, StandardCopyOption.REPLACE_EXISTING); // Üzerine yaz
+            System.out.println("Dosya taşındı: " + replaceFile);
+        } catch (IOException ioException) {
+            System.out.println("Dosya Hatası: " + SpecialColor.RED + ioException.getMessage());
+        }
+    }
+
+    // DOSYA SİLMEK
+    private static void deleteFile() throws IOException {
+        try {
+            Files.deleteIfExists(PATH);
+            System.out.println("Dosya Silindi: " + PATH);
+        } catch (IOException ioException) {
+            System.out.println("Dosya Silme: " + SpecialColor.RED + ioException.getMessage());
+        }
+    }
+
+    /// /////////////////////////////////////////////
+    // Uzantı ayrımak için yardımcı metot
+    private static String getFileExtension(String fileName) {
+        int lastIndex = fileName.lastIndexOf(".");
+        return (lastIndex != -1) ? fileName.substring(lastIndex + 1) : "YOK";
+    }
+
+    // 1024MB = 1GB
+    // 1024KB = 1MB
+    // Uzantı ayrımak için yardımcı metot
+    private static String toHumanReadable(long bytes) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        if (bytes >= 1024 * 1024 * 1024) {
+            return decimalFormat.format((double) bytes / (1024 * 1024 * 1024)) + "GB";
+        } else if (bytes >= 1024 * 1024) {
+            return decimalFormat.format((double) bytes / (1024 * 1024)) + "MB";
+        } else if (bytes >= 1024) {
+            return decimalFormat.format((double) bytes / (1024)) + "KB";
+        } else {
+            return bytes + " B";
+        }
+    }
+
+    // DOSYA HAKKINDA BİLGİLER
+    private static void showFileDetails() throws IOException {
+        // java.io.File objesi için nio'yu File çevir
+        File file = PATH.toFile();
+
+        if (file.exists()) {
+            System.out.println("Adı: " + file.getName());
+            System.out.println("Uzantısı: " + getFileExtension(file.getName()));
+            System.out.println("Boyut: " + toHumanReadable(file.length()));
+            System.out.println("Yolu: " + file.getAbsoluteFile());
+            System.out.println("Parent: " + file.getParent());
+            System.out.println("Okunabilir mi: " + file.canRead());
+            System.out.println("Yazılabilinir mi: " + file.canWrite());
+            System.out.println("Çalıştırtırılabilinir mi: " + file.canExecute());
+            System.out.println("Gizli: " + file.isHidden());
+            System.out.println("Dosya mı: " + file.isFile());
+            System.out.println("Dizin mi(Klasör mü): " + file.isDirectory());
+            System.out.println("Gizli: " + file.isHidden());
+            System.out.println("Boş alan (GB): " + toHumanReadable(file.getFreeSpace()));
+            System.out.println("Toplam alan (GB): " + toHumanReadable(file.getTotalSpace()));
+            System.out.println("Toplam: " + file.getName());
+        }
+    }
+
+    /// /////////////////////////////////////////////////////
+    // PSVM
+    public static void main(String[] args) throws IOException {
+        allAction();
+    } // end PSVM
 
 } //end _04_4_File_Intermedia_2
