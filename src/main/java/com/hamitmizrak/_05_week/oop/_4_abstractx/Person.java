@@ -42,6 +42,8 @@ abstract public class Person implements IPerson, Serializable {
     }
 
     // Gövdesiz Metot
+    // Bu classta en az 1 tane gövdesiz metot olduğu için mutlaka class abstract olmak zorunda
+    // Tersi doğru değildir.
     abstract public void specialData();
 
     // GÖVDELİ METOTLAR
