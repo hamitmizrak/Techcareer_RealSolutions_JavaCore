@@ -1,4 +1,4 @@
-## Java Core (Java 8 – Functional Interface )
+## Java Core (Java 8 – @FunctionalInterface )
 ```sh 
 
 ```
