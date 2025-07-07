@@ -9,7 +9,7 @@ import java.util.Date;
 // LOMBOK
 @Getter
 @Setter
-public class Person  implements IPerson, Serializable {
+public class Person implements IPerson, Serializable {
     int id;
     protected String name;
     protected String surname;
