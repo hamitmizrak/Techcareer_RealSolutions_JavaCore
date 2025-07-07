@@ -7,7 +7,6 @@
 
 Java’da `Method References` (Metot Referansları), **lambda ifadelerinin daha kısa ve okunabilir** bir alternatifidir. Java 8 ile gelmiştir ve `::` (çift iki nokta) operatörüyle kullanılır.
 
-Sana aşağıda **çok detaylı ve örnekli bir şekilde** `Method References` konusunu açıklıyorum — teorik anlatım + çalışır kod + yorumlarla.
 
 ---
 

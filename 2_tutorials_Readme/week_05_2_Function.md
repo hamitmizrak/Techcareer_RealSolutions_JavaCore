@@ -5,7 +5,7 @@
 ---
 
 
-Harika, şimdi Java 8 ile gelen **hazır fonksiyonel interface’leri** (`Function`, `Predicate`, `Consumer`, `Supplier`) hem **teorik** hem de **lambda ile kullanım örnekleri** üzerinden çok detaylı anlatacağım.
+Java 8 ile gelen **hazır fonksiyonel interface’leri** (`Function`, `Predicate`, `Consumer`, `Supplier`) hem **teorik** hem de **lambda ile kullanım örnekleri** üzerinden çok detaylı anlatacağım.
 
 ---
 
