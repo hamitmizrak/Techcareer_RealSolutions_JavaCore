@@ -3,6 +3,21 @@ package com.hamitmizrak._05_week.oop._3_inheritancex;
 public class MainInheritance {
 
     public static void main(String[] args) {
+
+        // STUDENT-1
+        Person person = new Person();
+        person.setId(1);
+        person.setName("person adı-1");
+        person.setSurname("person soyadı-1");
+        System.out.println(person);
+        person.fullName();
+        person.tcNumberValidation(123456L);
+        boolean isPassStudent = person.tcNumberValidation(123456L);
+        System.out.println(isPassStudent);
+        System.out.println(person.isGender("erkek")? "erkek" :"bayan");
+        System.out.println("\n=========================");
+
+
         // STUDENT-1
         Student student = new Student();
         student.setId(1);
@@ -12,12 +27,10 @@ public class MainInheritance {
         System.out.println(student);
         student.fullName();
         student.tcNumberValidation(123456L);
-        boolean isPassStudent = student.tcNumberValidation(123456L);
-        System.out.println(isPassStudent);
         System.out.println(student.isGender("erkek")? "erkek" :"bayan");
         System.out.println("\n=========================");
 
-        // STUDENT-1
+        // TEACHER-1
         Teacher teacher = new Teacher();
         teacher.setId(1);
         teacher.setName("öğretmen adı-1");

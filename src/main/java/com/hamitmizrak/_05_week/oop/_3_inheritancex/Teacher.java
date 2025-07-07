@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class Teacher extends Person implements IPerson, Serializable {
+public class Teacher extends Person {
 
     // Field
     private String price;
@@ -28,7 +28,7 @@ public class Teacher extends Person implements IPerson, Serializable {
     // METHOD
     // FULL NAME
     public void fullName() {
-        System.out.println(id + " " + name + " " + surname);
+        System.out.println(getId() + " " + getName() + " " + getSurname());
     }
 
     // TC NUMBER VALIDATION

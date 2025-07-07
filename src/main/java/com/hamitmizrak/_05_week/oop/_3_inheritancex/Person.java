@@ -3,12 +3,13 @@ package com.hamitmizrak._05_week.oop._3_inheritancex;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 // LOMBOK
 @Getter
 @Setter
-public class Person {
+public class Person  implements IPerson, Serializable {
     private int id;
     private String name;
     private String surname;
@@ -38,5 +39,20 @@ public class Person {
                 ", tcNumber='" + tcNumber + '\'' +
                 ", createdDate=" + createdDate +
                 '}';
+    }
+
+    @Override
+    public void fullName() {
+
+    }
+
+    @Override
+    public boolean tcNumberValidation(Long tcNumber) {
+        return false;
+    }
+
+    @Override
+    public boolean isGender(String gender) {
+        return false;
     }
 }

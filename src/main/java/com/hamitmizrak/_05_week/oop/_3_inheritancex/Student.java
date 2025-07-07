@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class Student extends Person implements IPerson, Serializable {
+public class Student extends Person {
 
     // Field
     private String number;
@@ -28,7 +28,7 @@ public class Student extends Person implements IPerson, Serializable {
     // FULLNAME
     @Override
     public void fullName(){
-        System.out.println(id+" "+name+" "+surname);
+        System.out.println(getId()+" "+getName()+" "+getSurname());
     }
 
     // TC NUMBER VALIDATION
