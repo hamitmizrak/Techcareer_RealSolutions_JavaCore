@@ -1,10 +1,11 @@
-package com.hamitmizrak._05_week.oop._3_inheritancex;
+package com.hamitmizrak._05_week.oop._4_abstractx;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.UUID;
 
 // LOMBOK
 @Getter
@@ -18,6 +19,12 @@ public class Teacher extends Person {
     // Parametresiz Constructor
     public Teacher() {
 
+    }
+
+    // Abstract Gövdesiz Metot
+    @Override
+    public void specialData() {
+        System.out.println("Teacher: "+ UUID.randomUUID().toString());
     }
 
     // Parametreli Constructor

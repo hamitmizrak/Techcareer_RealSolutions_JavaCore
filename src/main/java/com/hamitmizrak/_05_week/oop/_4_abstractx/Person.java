@@ -1,4 +1,4 @@
-package com.hamitmizrak._05_week.oop._3_inheritancex;
+package com.hamitmizrak._05_week.oop._4_abstractx;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +9,8 @@ import java.util.Date;
 // LOMBOK
 @Getter
 @Setter
-public class Person  implements IPerson, Serializable {
-    int id;
+abstract public class Person implements IPerson, Serializable {
+    protected int id;
     protected String name;
     protected String surname;
     protected String tcNumber;
@@ -41,6 +41,10 @@ public class Person  implements IPerson, Serializable {
                 '}';
     }
 
+    // Gövdesiz Metot
+    abstract public void specialData();
+
+    // GÖVDELİ METOTLAR
     @Override
     public void fullName() {
 
