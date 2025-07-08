@@ -1,3 +1,29 @@
+# Hamit Mızrak
+# 📊 GitHub İstatistikleri
+
+![Ziyaretçi](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak)
+![Stars](https://img.shields.io/github/stars/hamitmizrak/fullstack-project?style=social)
+![Forks](https://img.shields.io/github/forks/hamitmizrak/fullstack-project?style=social)
+![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/fullstack-project)
+
+## 🚀 GitHub Profil İstatistikleri
+
+![Hamit Mızrak GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=gruvbox)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
+
+## 🏆 Trophy
+
+![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=algolia)
+
+## 📈 Aktivite Grafiği
+
+![Aktivite Grafiği](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=github-compact)
+
+
+
+
+
+
 # Techcareer RealSolutions Java Core
 [GitHub]( https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore.git )
 [JDK](https://www.oracle.com/tr/java/technologies/downloads/#jdk23-windows)
