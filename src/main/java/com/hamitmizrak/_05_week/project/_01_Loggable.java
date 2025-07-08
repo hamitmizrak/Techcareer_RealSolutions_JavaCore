@@ -12,4 +12,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME) // Çalışma zamanında erişmek
 public @interface _01_Loggable {
     String value() default "General Class";
-}
+
+} // end
