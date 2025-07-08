@@ -1,29 +1,25 @@
 # Hamit Mızrak
+## 📊 GitHub Kullanıcı İstatistikleri
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
+[![Pinned Repo](https://github-readme-stats.vercel.app/api/pin/?username=hamitmizrak&repo=Techcareer_RealSolutions_JavaCore)](https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
-# Techcareer Real Solutions Java Core
+## 🏆 Profil Ödülleri
+![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
+
+## 📈 Aktivite Grafiği
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=react-dark)
+
+## ⏱️ Kod Yazma Zamanı (WakaTime)
+<!-- WakaTime hesabın varsa -->
+[![WakaTime](https://github-readme-stats.vercel.app/api/wakatime?username=hamitmizrak)](https://wakatime.com/@hamitmizrak)
 
 ## 🔍 Repo İstatistikleri
-
 ![Ziyaretçi Sayısı](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak.Techcareer_RealSolutions_JavaCore)
 ![Stars](https://img.shields.io/github/stars/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
 ![Forks](https://img.shields.io/github/forks/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
 ![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/Techcareer_RealSolutions_JavaCore)
-
-## 📊 GitHub Kullanıcı İstatistikleri
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
-
-## 🏆 Profil Ödülleri (Trophy)
-
-![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
-
-## 📈 Aktivite Grafiği
-
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=react-dark)
-
-
-
+![License](https://img.shields.io/github/license/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
 
 
@@ -46,6 +42,19 @@ git push -u origin master
 git clone  https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore.git
 ```
 ---
+
+
+📦 Techcareer_RealSolutions_JavaCore
+┣ 📂 src
+┃ ┣ 📂 com.hamitmizrak
+┃ ┃ ┣ 📜 MainTest.java
+┃ ┃ ┣ 📜 Order.java
+┃ ┃ ┣ 📜 Product.java
+┃ ┃ ┣ 📜 StreamApiExamples.java
+┃ ┃ ┗ 📜 LambdaExamples.java
+┣ 📜 README.md
+┣ 📜 pom.xml
+
 
 
 ## Java Common Rules
