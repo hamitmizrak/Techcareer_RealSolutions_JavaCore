@@ -1,23 +1,26 @@
 # Hamit Mızrak
-# 📊 GitHub İstatistikleri
 
-![Ziyaretçi](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak)
+# Techcareer Real Solutions Java Core
+
+## 🔍 Repo İstatistikleri
+
+![Ziyaretçi Sayısı](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak.Techcareer_RealSolutions_JavaCore)
 ![Stars](https://img.shields.io/github/stars/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
 ![Forks](https://img.shields.io/github/forks/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
 ![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
-## 🚀 GitHub Profil İstatistikleri
+## 📊 GitHub Kullanıcı İstatistikleri
 
-![Hamit Mızrak GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=gruvbox)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
 
-## 🏆 Trophy
+## 🏆 Profil Ödülleri (Trophy)
 
-![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=algolia)
+![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
 
 ## 📈 Aktivite Grafiği
 
-![Aktivite Grafiği](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=github-compact)
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=react-dark)
 
 
 
