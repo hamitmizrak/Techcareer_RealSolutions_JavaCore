@@ -2,6 +2,8 @@ package com.hamitmizrak._05_week.project;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 // LOMBOK
 @Getter
 @Setter
@@ -13,7 +15,7 @@ import lombok.*;
 // Ürün bilgilerinği içeren nesnesini temsil eder
 // @_01_Loggable anostasyonu ile işaretliyecektir.
 @_01_Loggable("Product") // Log Kategorisiyle belirtildi
-public class _04_ProductDto extends _02_BaseDto {
+public class _05_ProductDto extends _03_BaseDto implements _02_IFile, Serializable {
 
     // Field
     private String name;
@@ -36,6 +38,23 @@ public class _04_ProductDto extends _02_BaseDto {
     @Override
     public String getLogInfo() {
         return name + " - " + price + " TL";
+    }
+
+
+    // FILES
+    @Override
+    public void createFile() {
+
+    }
+
+    @Override
+    public void writeFile() {
+
+    }
+
+    @Override
+    public void readFromFile() {
+
     }
 
     // Getter And Setter

@@ -5,14 +5,14 @@ import java.util.Date;
 // ==> Bu abstract Classı Tüm Entity'ler için ortak bir sınıftır
 // ==> Ortak özellikler ve davranışlar içeren bu soyut(abstract) sınıfıdır.
 // ==> Diğer entitler bu sınıfı kalıtımlayacaktır ve buradaki ortak davranışa sahip olacaklardır.
-abstract public class _02_BaseDto {
+abstract public class _03_BaseDto  {
 
     // Field
     protected final Long id;
     protected final Date creatAt;
 
     // Parametresiz Constructor
-    public _02_BaseDto() {
+    public _03_BaseDto() {
         // Default
         id = System.currentTimeMillis();
         creatAt= new Date();

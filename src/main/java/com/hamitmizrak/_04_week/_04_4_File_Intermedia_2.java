@@ -96,6 +96,7 @@ public class _04_4_File_Intermedia_2 {
         }
     }
 
+
     // DOSYA OLUŞTUR
     private static void createFile() throws IOException {
         try {

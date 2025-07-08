@@ -1,5 +1,15 @@
 package com.hamitmizrak._05_week;
 
+
+
+
+@FunctionalInterface
+interface Mesaj {
+    void yaz(String msg);
+}
+
+
+
 public class _05_3_Java8_LambdaExpression {
 
     public static void main(String[] args) {
@@ -19,5 +29,12 @@ public class _05_3_Java8_LambdaExpression {
         // Lambda Expression
         Runnable r3 = () ->System.out.println("3- Çalışıyor...");
         r3.run();
+
+
+        // FunctionalInterface
+        // Kullanım
+        //Mesaj m = (String msg) -> System.out.println("Gelen mesaj: " + msg);
+        Mesaj m = (String msg) -> { System.out.println("Gelen mesaj: " + msg);};
+        m.yaz("Merhaba Lambda");
     }
 }

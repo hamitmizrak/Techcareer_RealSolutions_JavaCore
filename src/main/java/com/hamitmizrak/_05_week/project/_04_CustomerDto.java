@@ -14,12 +14,11 @@ import lombok.*;
 @Builder
 
 @_01_Loggable("Customer") // Log Kategorisiyle belirtildi
-public class _03_CustomerDto extends _02_BaseDto {
+public class _04_CustomerDto extends _03_BaseDto implements _02_IFile{
 
     // Field
     private String name;
     private String email;
-
     // Parametreli Constructor
 
     // toString
@@ -37,6 +36,22 @@ public class _03_CustomerDto extends _02_BaseDto {
     @Override
     public String getLogInfo() {
         return name+" "+email+ " ";
+    }
+
+    // FILES
+    @Override
+    public void createFile() {
+
+    }
+
+    @Override
+    public void writeFile() {
+
+    }
+
+    @Override
+    public void readFromFile() {
+
     }
 
     // Getter And Setter
