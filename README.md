@@ -1,4 +1,15 @@
 # Hamit Mızrak
+
+## 🔍 Repo İstatistikleri
+![Ziyaretçi Sayısı](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak.Techcareer_RealSolutions_JavaCore)
+![Stars](https://img.shields.io/github/stars/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
+![Forks](https://img.shields.io/github/forks/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
+![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/Techcareer_RealSolutions_JavaCore)
+![License](https://img.shields.io/github/license/hamitmizrak/Techcareer_RealSolutions_JavaCore)
+
+## 🏆 Profil Ödülleri
+![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
+
 ## 📊 GitHub Kullanıcı İstatistikleri
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
 <br>
@@ -8,8 +19,6 @@
 
 
 
-## 🏆 Profil Ödülleri
-![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
 
 ## 📈 Aktivite Grafiği
 ![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=react-dark)
@@ -17,14 +26,6 @@
 ## ⏱️ Kod Yazma Zamanı (WakaTime)
 <!-- WakaTime hesabın varsa -->
 [![WakaTime](https://github-readme-stats.vercel.app/api/wakatime?username=hamitmizrak)](https://wakatime.com/@hamitmizrak)
-
-## 🔍 Repo İstatistikleri
-![Ziyaretçi Sayısı](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak.Techcareer_RealSolutions_JavaCore)
-![Stars](https://img.shields.io/github/stars/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
-![Forks](https://img.shields.io/github/forks/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
-![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/Techcareer_RealSolutions_JavaCore)
-![License](https://img.shields.io/github/license/hamitmizrak/Techcareer_RealSolutions_JavaCore)
-
 
 
 # Techcareer RealSolutions Java Core
