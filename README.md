@@ -1,32 +1,28 @@
 # Hamit Mızrak
 
-## 🔍 Repo İstatistikleri
+## 🔍 Hamit Mızrak Repo İstatistikleri
 ![Ziyaretçi Sayısı](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak.Techcareer_RealSolutions_JavaCore)
 ![Stars](https://img.shields.io/github/stars/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
 ![Forks](https://img.shields.io/github/forks/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
 ![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 ![License](https://img.shields.io/github/license/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
-## 🏆 Profil Ödülleri
+## 🏆 Hamit Mızrak Profil Ödülleri
 ![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
 
-## 📊 GitHub Kullanıcı İstatistikleri
+## 📊 Hamit Mızrak GitHub Kullanıcı İstatistikleri
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
 <br>
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
 <br>
 [![Pinned Repo](https://github-readme-stats.vercel.app/api/pin/?username=hamitmizrak&repo=Techcareer_RealSolutions_JavaCore)](https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
-
-
-
-## 📈 Aktivite Grafiği
+## 📈 Hamit Mızrak Aktivite Grafiği
 ![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamitmizrak&theme=react-dark)
 
-## ⏱️ Kod Yazma Zamanı (WakaTime)
+## ⏱️ Hamit Mızrak Kod Yazma Zamanı (WakaTime)
 <!-- WakaTime hesabın varsa -->
 [![WakaTime](https://github-readme-stats.vercel.app/api/wakatime?username=hamitmizrak)](https://wakatime.com/@hamitmizrak)
-
 
 # Techcareer RealSolutions Java Core
 [GitHub]( https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore.git )
@@ -34,7 +30,6 @@
 [Intellij Idea Community](https://www.jetbrains.com/idea/download/?section=windows)
 [Git](https://git-scm.com/downloads)
 [Java Tutorials](https://www.w3schools.com/java/default.asp)
-
 
 ## Git
 ```sh 
