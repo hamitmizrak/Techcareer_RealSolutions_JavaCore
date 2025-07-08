@@ -4,6 +4,7 @@
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
 [![Pinned Repo](https://github-readme-stats.vercel.app/api/pin/?username=hamitmizrak&repo=Techcareer_RealSolutions_JavaCore)](https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
+
 ## 🏆 Profil Ödülleri
 ![Trophy](https://github-profile-trophy.vercel.app/?username=hamitmizrak&theme=gruvbox)
 
