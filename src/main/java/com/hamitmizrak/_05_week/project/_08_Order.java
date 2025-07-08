@@ -4,6 +4,7 @@ import lombok.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 
 // LOMBOK
 @Getter
@@ -30,69 +31,88 @@ public class _08_Order extends _03_BaseDto implements _07_IAllMethod {  // 3.YOL
     public String toString() {
         return "Order of" +
                 "müşteri adı=" + customerDto.getName() +
-                ", toplam Tutar=" + getTotalAmount() +
+                ", toplam Tutar=" + getSeriTotalAmount() +
                 '}';
     }
 
     // Method
     @Override
     public String getLogInfo() {
-        return "Order[ Customer="+customerDto.getName()+" Total: "+getTotalAmount()+" ]";
+        return "Order[ Customer="+customerDto.getName()+" Total: "+getSeriTotalAmount()+" ]";
     }
 
-    // Toplam Tutar
-    private double getTotalAmount() {
-        return 0.0;
-    }
-
-    // Order
+    // Stream api, Lambda Expression, Method Referances
+    // Order Method
+    // 1 - Üründeki Toplam fiyat hesaplaması (Seri)
     @Override
     public double getSeriTotalAmount() {
-        return 0;
+        return productDtoList.stream().mapToDouble(_05_ProductDto::getPrice).sum();
     }
 
+    // 2 - Ürün nesnesindeki ==>  Toplam fiyat hesaplaması (Paralelleştirme)
     @Override
     public double getParallelTotalAmount() {
-        return 0;
+        return  productDtoList.parallelStream().mapToDouble(_05_ProductDto::getPrice).sum();
     }
 
+    // 3 - Ürün nesnesindeki ==>  Tüm ürünlerin adlarını liste olarak dönsün
     @Override
     public List<String> getProductNameList() {
-        return List.of();
+        // 1.YOL Lambda Expression
+        //return productDtoList.stream().map((temp)-> temp.getName()).collect(Collectors.toList());
+
+        // 2.YOL Method Referances 100
+        return productDtoList.stream().map(_05_ProductDto::getName).collect(Collectors.toList());
     }
 
+    // 4 - Ürün nesnesindeki ==>  Belirli fiyat üstü ürünleri Listelensin
     @Override
-    public List<_05_ProductDto> getProductsMoreThan() {
-        return List.of();
+    public List<_05_ProductDto> getProductsMoreThan(double price) {
+        return productDtoList
+                .stream()
+                .filter((temp)->temp.getPrice()>price)
+                .collect(Collectors.toList());
     }
 
+    // 5 - Ürün nesnesindeki ==>  Ortalama ürün fiyatını hesapla
     @Override
     public OptionalDouble getAveragePrice() {
-        return OptionalDouble.empty();
+        return  productDtoList
+                .stream()
+                .mapToDouble(_05_ProductDto::getPrice).average();
     }
 
+    // 6- Ürün nesnesindeki ==>  En pahalı ürünü dönder
     @Override
     public Optional<_05_ProductDto> getMostExpensiveProduct() {
         return Optional.empty();
     }
 
+    // 7- Ürün nesnesindeki ==>   Tüm ürünlerimiz aynı isimle mi yazılmış
     @Override
     public boolean isSameProductsName(String name) {
-        return false;
+        return productDtoList
+                .stream()
+                .allMatch(temp -> temp.getName().equalsIgnoreCase(name));
     }
 
+    // 8- Ürün nesnesindeki ==>  En az bir ünüde belirli isimde mi?
     @Override
-    public boolean containsPRoductNamed(String name) {
-        return false;
+    public boolean containsProductNamed(String name) {
+        return  productDtoList
+                .stream()
+                .anyMatch(temp -> temp.getName().equalsIgnoreCase(name));
     }
-
+    // 9- Ürün nesnesindeki ==>  Bütün ürünlerden Ücretsiz ürün var mı ?
     @Override
     public boolean nonIsPriveFree() {
-        return false;
+        return  productDtoList
+                .stream()
+                .noneMatch(temp -> temp.getName().equalsIgnoreCase(name));
     }
 
 
-    // FILES
+    // Fiel Method
     @Override
     public void createFile() {
 

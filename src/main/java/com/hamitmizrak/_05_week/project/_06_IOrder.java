@@ -16,9 +16,9 @@ public interface _06_IOrder {
     public List<String> getProductNameList();
 
     // 4 - Belirli fiyat üstü ürünleri lsitelesin
-    public List<_05_ProductDto> getProductsMoreThan();
+    public List<_05_ProductDto> getProductsMoreThan(double price);
 
-    // 5 - Ortalama ürün fiyatını heasapla
+    // 5 - Ortalama ürün fiyatını hesapla
     public OptionalDouble getAveragePrice();
 
     // 6- En pahalı ürünü dönder
@@ -28,7 +28,7 @@ public interface _06_IOrder {
     public boolean isSameProductsName(String name);
 
     // 8- En az bir ünüde belirli isimde mi?
-    public boolean containsPRoductNamed(String name);
+    public boolean containsProductNamed(String name);
 
     // 9- Bütün ürünlerden Ücretsiz ürün var mı ?
     public boolean nonIsPriveFree();
