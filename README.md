@@ -2,9 +2,9 @@
 # 📊 GitHub İstatistikleri
 
 ![Ziyaretçi](https://visitor-badge.laobi.icu/badge?page_id=hamitmizrak)
-![Stars](https://img.shields.io/github/stars/hamitmizrak/fullstack-project?style=social)
-![Forks](https://img.shields.io/github/forks/hamitmizrak/fullstack-project?style=social)
-![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/fullstack-project)
+![Stars](https://img.shields.io/github/stars/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
+![Forks](https://img.shields.io/github/forks/hamitmizrak/Techcareer_RealSolutions_JavaCore?style=social)
+![Son Commit](https://img.shields.io/github/last-commit/hamitmizrak/Techcareer_RealSolutions_JavaCore)
 
 ## 🚀 GitHub Profil İstatistikleri
 
