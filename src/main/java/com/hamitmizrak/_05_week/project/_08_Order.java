@@ -108,7 +108,7 @@ public class _08_Order extends _03_BaseDto implements _07_IAllMethod {  // 3.YOL
     public boolean nonIsPriveFree() {
         return  productDtoList
                 .stream()
-                .noneMatch(temp -> temp.getName().equalsIgnoreCase(name));
+                .noneMatch(temp -> temp.getPrice()==0.0);
     }
 
 

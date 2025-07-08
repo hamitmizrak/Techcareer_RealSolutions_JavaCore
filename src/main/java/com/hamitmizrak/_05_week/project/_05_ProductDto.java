@@ -19,7 +19,7 @@ public class _05_ProductDto extends _03_BaseDto implements _02_IFile, Serializab
 
     // Field
     private String name;
-    private double price;
+    private Double price;
 
     // Parametreli Constructor
 
