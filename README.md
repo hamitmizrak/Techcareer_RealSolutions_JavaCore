@@ -1,8 +1,8 @@
 # Hamit Mızrak
 ## 📊 GitHub Kullanıcı İstatistikleri
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamitmizrak&layout=compact)
 [![Pinned Repo](https://github-readme-stats.vercel.app/api/pin/?username=hamitmizrak&repo=Techcareer_RealSolutions_JavaCore)](https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamitmizrak&show_icons=true&theme=tokyonight)
 
 
 ## 🏆 Profil Ödülleri
