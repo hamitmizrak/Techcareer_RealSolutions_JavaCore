@@ -43,7 +43,7 @@ git clone  https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore.git
 ```
 ---
 
-
+```shell
 📦 Techcareer_RealSolutions_JavaCore
 ┣ 📂 src
 ┃ ┣ 📂 com.hamitmizrak
@@ -54,7 +54,15 @@ git clone  https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore.git
 ┃ ┃ ┗ 📜 LambdaExamples.java
 ┣ 📜 README.md
 ┣ 📜 pom.xml
+```
+---
 
+
+# Projeyi derleyin
+mvn compile
+
+# Main method içeren sınıfı çalıştırın
+java -cp target/classes com.hamitmizrak.MainTest
 
 
 ## Java Common Rules
