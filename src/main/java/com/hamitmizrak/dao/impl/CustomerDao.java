@@ -23,7 +23,7 @@ public class CustomerDao implements IFile<CustomerDto> {
     @Override
     public void save(CustomerDto customerDto) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(specialPath, true))) {
-            bufferedWriter.write(customerDto.getId() + " " + customerDto.getName() + " " + customerDto.getEmail());
+            bufferedWriter.write(customerDto.getId() + "," + customerDto.getName() + "," + customerDto.getEmail());
             bufferedWriter.flush();// acilen kaydet
             bufferedWriter.newLine();
         } catch (IOException ioException) {
@@ -44,7 +44,8 @@ public class CustomerDao implements IFile<CustomerDto> {
                     continue;
 
                 // 2. Split işlemleri sonrasında alan sayısını kontrol edelim
-                String[] fileArray = line.split(",");
+                //String[] fileArray =  line.split("[,\\s]+"); // hem virgül hem 1+ boşluk
+                String[] fileArray =  line.split(" "); // hem virgül hem 1+ boşluk
                 if(fileArray.length!=3){
                     System.out.println(SpecialColor.RED+" Uyarı Hatalı Formatlı satır atlandı ==> "+ line);
                     continue;
