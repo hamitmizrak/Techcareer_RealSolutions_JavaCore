@@ -1,0 +1,23 @@
+git init
+git add .
+git commit -m "ilk commit"
+git remote add origin Github_URL
+
+# Branch (Öncesinde mutlaka add ve commit  olmalıdır)
+git branch frontend (Branch)
+git checkout frontend (dallal)
+git add .
+git commit -m "frontend"
+git remote
+git push -u origin frontend
+git branch master
+
+# 2.YOL
+git checkout -b frontend ==> (branch oluştur ve dallal)
+git add .
+git status
+git log
+git commit -m "frontend"
+git remote
+git push -u origin frontend
+git branch master
