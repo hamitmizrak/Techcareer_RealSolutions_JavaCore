@@ -1,9 +1,11 @@
-package com.hamitmizrak._05_week.project;
+package com.hamitmizrak.dto;
 
 // ===> 3 Customer Sınıfı
 // Bir müşteri nesnesini temsil eder
 // @_01_Loggable anostasyonu ile işaretliyecektir.
 
+import com.hamitmizrak.utilty.Loggable;
+import com.hamitmizrak.dao.IFile;
 import lombok.*;
 
 // LOMBOK
@@ -13,8 +15,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 
-@_01_Loggable("Customer") // Log Kategorisiyle belirtildi
-public class _04_CustomerDto extends _03_BaseDto implements _02_IFile{
+@Loggable("Customer") // Log Kategorisiyle belirtildi
+public class CustomerDto extends BaseDto implements IFile {
 
     // Field
     private String name;

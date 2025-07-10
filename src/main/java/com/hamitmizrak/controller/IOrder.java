@@ -1,10 +1,12 @@
-package com.hamitmizrak._05_week.project;
+package com.hamitmizrak.controller;
+
+import com.hamitmizrak.dto.ProductDto;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
 
-public interface _06_IOrder {
+public interface IOrder {
 
     // 1 - Toplam fiyat hesaplaması (Seri)
     public double getSeriTotalAmount();
@@ -16,13 +18,13 @@ public interface _06_IOrder {
     public List<String> getProductNameList();
 
     // 4 - Belirli fiyat üstü ürünleri lsitelesin
-    public List<_05_ProductDto> getProductsMoreThan(double price);
+    public List<ProductDto> getProductsMoreThan(double price);
 
     // 5 - Ortalama ürün fiyatını hesapla
     public OptionalDouble getAveragePrice();
 
     // 6- En pahalı ürünü dönder
-    public Optional<_05_ProductDto> getMostExpensiveProduct();
+    public Optional<ProductDto> getMostExpensiveProduct();
 
     // 7- Tüm ürünlerimiz aynı isimle mi yazılmış
     public boolean isSameProductsName(String name);

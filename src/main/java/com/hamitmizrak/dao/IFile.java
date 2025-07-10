@@ -1,6 +1,6 @@
-package com.hamitmizrak._05_week.project;
+package com.hamitmizrak.dao;
 
-public interface _02_IFile {
+public interface IFile {
     public void createFile();
 
     public void writeFile();

@@ -1,5 +1,7 @@
-package com.hamitmizrak._05_week.project;
+package com.hamitmizrak.dto;
 
+import com.hamitmizrak.utilty.Loggable;
+import com.hamitmizrak.dao.IFile;
 import lombok.*;
 
 import java.io.Serializable;
@@ -14,8 +16,8 @@ import java.io.Serializable;
 // ===> 4 Product Sınıfı
 // Ürün bilgilerinği içeren nesnesini temsil eder
 // @_01_Loggable anostasyonu ile işaretliyecektir.
-@_01_Loggable("Product") // Log Kategorisiyle belirtildi
-public class _05_ProductDto extends _03_BaseDto implements _02_IFile, Serializable {
+@Loggable("Product") // Log Kategorisiyle belirtildi
+public class ProductDto extends BaseDto implements IFile, Serializable {
 
     // Field
     private String name;

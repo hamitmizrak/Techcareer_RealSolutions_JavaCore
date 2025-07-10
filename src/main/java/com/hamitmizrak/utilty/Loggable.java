@@ -1,4 +1,4 @@
-package com.hamitmizrak._05_week.project;
+package com.hamitmizrak.utilty;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE) // Sınıflar üzerinden kullanmak
 @Retention(RetentionPolicy.RUNTIME) // Çalışma zamanında erişmek
-public @interface _01_Loggable {
+public @interface Loggable {
     String value() default "General Class";
 
 } // end

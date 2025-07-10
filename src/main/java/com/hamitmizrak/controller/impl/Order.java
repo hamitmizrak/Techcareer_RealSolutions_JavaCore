@@ -1,5 +1,10 @@
-package com.hamitmizrak._05_week.project;
+package com.hamitmizrak.controller.impl;
 
+import com.hamitmizrak.dao.IAllMethod;
+import com.hamitmizrak.dto.BaseDto;
+import com.hamitmizrak.dto.CustomerDto;
+import com.hamitmizrak.dto.ProductDto;
+import com.hamitmizrak.utilty.Loggable;
 import lombok.*;
 import java.util.List;
 import java.util.Optional;
@@ -17,14 +22,14 @@ import java.util.stream.Collectors;
 // Siparişi Temsil eder Müşteri ve Ürün Listesi içerir.
 
 // @_01_Loggable anostasyonu ile işaretliyecektir.
-@_01_Loggable("Order") // Log Kategorisiyle belirtildi
+@Loggable("Order") // Log Kategorisiyle belirtildi
 //public class _07_Order extends _03_BaseDto implements _02_IFile, _06_IOrder { // 1.YOL
 //public class _08_Order extends _03_BaseDto implements _06_IOrder {     // 2.YOL
-public class _08_Order extends _03_BaseDto implements _07_IAllMethod {  // 3.YOL
+public class Order extends BaseDto implements IAllMethod {  // 3.YOL
 
     // Field
-    private _04_CustomerDto customerDto;
-    private List<_05_ProductDto> productDtoList;
+    private CustomerDto customerDto;
+    private List<ProductDto> productDtoList;
 
     // ToString
     @Override
@@ -46,13 +51,13 @@ public class _08_Order extends _03_BaseDto implements _07_IAllMethod {  // 3.YOL
     // 1 - Üründeki Toplam fiyat hesaplaması (Seri)
     @Override
     public double getSeriTotalAmount() {
-        return productDtoList.stream().mapToDouble(_05_ProductDto::getPrice).sum();
+        return productDtoList.stream().mapToDouble(ProductDto::getPrice).sum();
     }
 
     // 2 - Ürün nesnesindeki ==>  Toplam fiyat hesaplaması (Paralelleştirme)
     @Override
     public double getParallelTotalAmount() {
-        return  productDtoList.parallelStream().mapToDouble(_05_ProductDto::getPrice).sum();
+        return  productDtoList.parallelStream().mapToDouble(ProductDto::getPrice).sum();
     }
 
     // 3 - Ürün nesnesindeki ==>  Tüm ürünlerin adlarını liste olarak dönsün
@@ -62,12 +67,12 @@ public class _08_Order extends _03_BaseDto implements _07_IAllMethod {  // 3.YOL
         //return productDtoList.stream().map((temp)-> temp.getName()).collect(Collectors.toList());
 
         // 2.YOL Method Referances 100
-        return productDtoList.stream().map(_05_ProductDto::getName).collect(Collectors.toList());
+        return productDtoList.stream().map(ProductDto::getName).collect(Collectors.toList());
     }
 
     // 4 - Ürün nesnesindeki ==>  Belirli fiyat üstü ürünleri Listelensin
     @Override
-    public List<_05_ProductDto> getProductsMoreThan(double price) {
+    public List<ProductDto> getProductsMoreThan(double price) {
         return productDtoList
                 .stream()
                 .filter((temp)->temp.getPrice()>price)
@@ -79,12 +84,12 @@ public class _08_Order extends _03_BaseDto implements _07_IAllMethod {  // 3.YOL
     public OptionalDouble getAveragePrice() {
         return  productDtoList
                 .stream()
-                .mapToDouble(_05_ProductDto::getPrice).average();
+                .mapToDouble(ProductDto::getPrice).average();
     }
 
     // 6- Ürün nesnesindeki ==>  En pahalı ürünü dönder
     @Override
-    public Optional<_05_ProductDto> getMostExpensiveProduct() {
+    public Optional<ProductDto> getMostExpensiveProduct() {
         return Optional.empty();
     }
 
