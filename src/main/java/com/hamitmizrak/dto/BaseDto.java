@@ -17,7 +17,7 @@ import java.util.Date;
 abstract public class BaseDto {
 
     // Field
-    protected final Long id;
+    protected Long id;
     protected Date creatAt;
 
     // Parametresiz Constructor

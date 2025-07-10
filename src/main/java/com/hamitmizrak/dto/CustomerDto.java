@@ -25,8 +25,7 @@ public class CustomerDto extends BaseDto {
     private String email;
 
     // Parametreli Constructor
-    public CustomerDto(Long id, String name, String email) {
-        super(id);
+    public CustomerDto(String name, String email) {
         this.name = name;
         this.email = email;
     }

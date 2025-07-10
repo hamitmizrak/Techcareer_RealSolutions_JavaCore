@@ -12,8 +12,8 @@ public class Main {
 
     private static void customerAdd(){
         customerController= new CustomerController();
-        CustomerDto customerDto1 = new CustomerDto(Long.valueOf(1L), "Hamit Mızrak","hamitmizrak@gmail.com");
-        CustomerDto customerDto2 = new CustomerDto(Long.valueOf(2L), "Hamit Mızrak2","hamitmizrak2@gmail.com");
+        CustomerDto customerDto1 = new CustomerDto("Hamit Mızrak","hamitmizrak@gmail.com");
+        CustomerDto customerDto2 = new CustomerDto("Hamit Mızrak2","hamitmizrak2@gmail.com");
 
         customerController.customerControllerSave(customerDto1);
         customerController.customerControllerSave(customerDto2);
