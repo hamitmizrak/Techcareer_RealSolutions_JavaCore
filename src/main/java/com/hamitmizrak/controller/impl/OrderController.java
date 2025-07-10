@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Loggable("Order") // Log Kategorisiyle belirtildi
 //public class _07_Order extends _03_BaseDto implements _02_IFile, _06_IOrder { // 1.YOL
 //public class _08_Order extends _03_BaseDto implements _06_IOrder {     // 2.YOL
-public class Order extends BaseDto implements IAllMethod {  // 3.YOL
+public class OrderController extends BaseDto implements IAllMethod {  // 3.YOL
 
     // Field
     private CustomerDto customerDto;
