@@ -1,6 +1,6 @@
 package com.hamitmizrak;
 
-import com.hamitmizrak.controller.impl.CustomerController;
+import com.hamitmizrak.controller.impl.CustomerControllerImpl;
 import com.hamitmizrak.dto.CustomerDto;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -8,18 +8,18 @@ import com.hamitmizrak.dto.CustomerDto;
 public class Main {
 
     // Injection
-   private static CustomerController customerController;
+   private static CustomerControllerImpl customerControllerImpl;
 
     private static void customerAdd(){
-        customerController= new CustomerController();
+        customerControllerImpl = new CustomerControllerImpl();
         CustomerDto customerDto1 = new CustomerDto("Hamit Mızrak","hamitmizrak@gmail.com");
         CustomerDto customerDto2 = new CustomerDto("Hamit Mızrak2","hamitmizrak2@gmail.com");
 
-        customerController.customerControllerSave(customerDto1);
-        customerController.customerControllerSave(customerDto2);
+        customerControllerImpl.customerControllerSave(customerDto1);
+        customerControllerImpl.customerControllerSave(customerDto2);
 
         // Tüm Müşterileri Listele
-        customerController.customerControllerFindAll();
+        customerControllerImpl.customerControllerFindAll();
     }
 
     public static void main(String[] args) {

@@ -5,7 +5,7 @@ import com.hamitmizrak.services.CustomerService;
 
 import java.util.List;
 
-public class CustomerController {
+public class CustomerControllerImpl {
 
     // Field
     private final CustomerService customerService = new CustomerService();

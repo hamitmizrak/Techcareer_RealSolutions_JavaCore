@@ -45,7 +45,7 @@ public class CustomerDao implements IFile<CustomerDto> {
 
                 // 2. Split işlemleri sonrasında alan sayısını kontrol edelim
                 //String[] fileArray =  line.split("[,\\s]+"); // hem virgül hem 1+ boşluk
-                String[] fileArray =  line.split(" "); // hem virgül hem 1+ boşluk
+                String[] fileArray =  line.split(","); // hem virgül hem 1+ boşluk
                 if(fileArray.length!=3){
                     System.out.println(SpecialColor.RED+" Uyarı Hatalı Formatlı satır atlandı ==> "+ line);
                     continue;
