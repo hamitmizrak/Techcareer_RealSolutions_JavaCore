@@ -8,6 +8,8 @@ import com.hamitmizrak.utilty.Loggable;
 import com.hamitmizrak.dao.IFile;
 import lombok.*;
 
+import java.util.Date;
+
 // LOMBOK
 @Getter
 @Setter
@@ -16,12 +18,18 @@ import lombok.*;
 @Builder
 
 @Loggable("Customer") // Log Kategorisiyle belirtildi
-public class CustomerDto extends BaseDto implements IFile {
+public class CustomerDto extends BaseDto {
 
     // Field
     private String name;
     private String email;
+
     // Parametreli Constructor
+    public CustomerDto(Long id, String name, String email) {
+        super(id);
+        this.name = name;
+        this.email = email;
+    }
 
     // toString
     @Override
@@ -37,24 +45,7 @@ public class CustomerDto extends BaseDto implements IFile {
     // Method
     @Override
     public String getLogInfo() {
-        return name+" "+email+ " ";
+        return name + " " + email + " ";
     }
 
-    // FILES
-    @Override
-    public void createFile() {
-
-    }
-
-    @Override
-    public void writeFile() {
-
-    }
-
-    @Override
-    public void readFromFile() {
-
-    }
-
-    // Getter And Setter
 } // end

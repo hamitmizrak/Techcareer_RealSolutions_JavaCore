@@ -1,9 +1,15 @@
 package com.hamitmizrak.dao;
 
-public interface IFile {
-    public void createFile();
+import com.hamitmizrak.dto.CustomerDto;
+import com.hamitmizrak.dto.ProductDto;
 
-    public void writeFile();
+import java.util.List;
 
-    public void readFromFile();
+public interface IFile<T> {
+
+    // FILE CREATE
+    public void save(T t);
+
+    // FILE READ
+    public List<CustomerDto> findAll();
 }

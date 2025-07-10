@@ -118,19 +118,16 @@ public class OrderController extends BaseDto implements IAllMethod {  // 3.YOL
 
 
     // Fiel Method
+
     @Override
-    public void createFile() {
+    public void save(Object o) {
 
     }
 
     @Override
-    public void writeFile() {
+    public List<CustomerDto>  findAll() {
 
-    }
-
-    @Override
-    public void readFromFile() {
-
+        return null;
     }
 } // end
 

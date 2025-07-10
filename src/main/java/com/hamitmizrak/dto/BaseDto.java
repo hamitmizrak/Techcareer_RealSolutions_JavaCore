@@ -1,6 +1,15 @@
 package com.hamitmizrak.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
+
+// LOMBOK
+@Getter
+@Setter
+@AllArgsConstructor
 
 // ==> Bu abstract Classı Tüm Entity'ler için ortak bir sınıftır
 // ==> Ortak özellikler ve davranışlar içeren bu soyut(abstract) sınıfıdır.
@@ -9,13 +18,18 @@ abstract public class BaseDto {
 
     // Field
     protected final Long id;
-    protected final Date creatAt;
+    protected Date creatAt;
 
     // Parametresiz Constructor
     public BaseDto() {
         // Default
         id = System.currentTimeMillis();
         creatAt= new Date();
+    }
+
+    // Parametreli Constuctor
+    public BaseDto(Long id) {
+        this.id = id;
     }
 
     // METHOD (Gövdesiz)
