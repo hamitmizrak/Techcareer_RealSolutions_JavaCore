@@ -14,7 +14,6 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 
 @Loggable("Customer") // Log Kategorisiyle belirtildi
