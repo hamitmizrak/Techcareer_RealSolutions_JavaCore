@@ -3,21 +3,52 @@ git add .
 git commit -m "ilk commit"
 git remote add origin Github_URL
 
-# Branch (Öncesinde mutlaka add ve commit  olmalıdır)
+DİKKAT: Öncesinde mutlaka add ve commit  olmalıdır
+# 1.YOL
 git branch frontend (Branch)
+git branch
 git checkout frontend (dallal)
-git add .
-git commit -m "frontend"
-git remote
-git push -u origin frontend
-git branch master
-
-# 2.YOL
-git checkout -b frontend ==> (branch oluştur ve dallal)
 git add .
 git status
 git log
 git commit -m "frontend"
 git remote
 git push -u origin frontend
-git branch master
+git checkout master
+git merge master
+VEYA
+git rebase master
+
+BRANCH SİL ==> git branch -D frontend
+
+
+
+# 2.YOL
+git checkout -b frontend ==> (branch oluştur ve dallal)
+echo "// frontend" > frontend.txt
+cat >> frontend.txt
+git add .
+git status
+git log
+git commit -m "frontend"
+git remote
+git push -u origin frontend
+git checkout master
+git merge master
+VEYA
+git rebase master
+
+# Dikkat:
+ ana branch ==> frontend   (git merge frontend)
+
+ frontend   ==> ana branch (git merge frontend)
+
+
+
+#Eğer hata alırsanız
+git reset HEAD  ==> stage edilmiş (add) kısımları unstage çevir
+git reset --soft HEAD~1  ==> son commit geri alır,  tüm değişikliği bırakır
+git reset --hard HEAD~1  ==> son commit geri alır,  tüm değişikliği siler
+
+
+git log --oneline --graph --all
