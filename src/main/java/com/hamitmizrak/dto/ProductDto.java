@@ -9,7 +9,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 
 // ===> 4 Product Sınıfı
@@ -23,15 +22,19 @@ public class ProductDto extends BaseDto implements  Serializable {
     private Double price;
 
     // Parametreli Constructor
+    public ProductDto(String name, Double price) {
+        this.name = name;
+        this.price = price;
+    }
 
     // toString
     @Override
     public String toString() {
         return "_04_ProductDto{" +
+                "id='" + id + '\'' +
                 "name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", creatAt=" + creatAt +
-                ", id=" + id +
                 '}';
     }
 

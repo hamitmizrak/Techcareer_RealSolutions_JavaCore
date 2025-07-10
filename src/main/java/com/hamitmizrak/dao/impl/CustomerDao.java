@@ -68,7 +68,7 @@ public class CustomerDao implements IFile<CustomerDto> {
                     customerDtoList.add(customerDto);
                 }catch (NumberFormatException numberFormatException){
                     numberFormatException.printStackTrace();
-                    System.out.println("Uyaroı sayıya çevrilemeyen veri atlandı=> "+ line);
+                    System.out.println("Uyarı sayıya çevrilemeyen veri atlandı=> "+ line);
                 }
             }
         } catch (IOException ioException) {

@@ -11,5 +11,5 @@ public interface IFile<T> {
     public void save(T t);
 
     // FILE READ
-    public List<CustomerDto> findAll();
+    public List<T> findAll();
 }
