@@ -1,7 +1,9 @@
-# Socket Programming
+# Projeyi çalışırmak
 
 ```sh 
 
+mvn clean package
+java -jar target/clientxxxxxx.jar
 ```
 ---
 
