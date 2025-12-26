@@ -48,4 +48,20 @@ public final class ChatProtocol { // Kalıtım izin vermiyor
         return TS.format(Instant.now());
     }
 
-}
+
+    /*
+    * Kullanıcı mesajı ENTER yani(newline ile girese protokol bozulmasın diye temizler)
+    * Amaç: 1 mesaj 1 satır
+    * Mesaj içinde server/client bunu yeni mesaja gibi algılar
+    *
+    * BUNDAN DOLAYI ==> \r ve \n karakterlerini boşlukla değiştiriyoruz
+    *
+    * */
+    public static String sanitize(String message){
+        if(message ==null){
+            return "";
+        }
+        return message.replace("\r"," ").replace("\n"," ");
+    }
+
+} //end ChatProtocol
