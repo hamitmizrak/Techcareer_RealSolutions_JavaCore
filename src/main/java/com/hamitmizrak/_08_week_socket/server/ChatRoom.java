@@ -113,7 +113,6 @@ public class ChatRoom {
         printWriter.println("KİM: " + String.join(",", nicks));
     } //end sendWho
 
-
     // BROADCAST
     public void broadcastChat(String nick, String text) {
         String safe= ChatProtocol.sanitize(text);
