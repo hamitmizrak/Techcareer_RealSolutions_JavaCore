@@ -23,14 +23,15 @@ package com.hamitmizrak._08_week_socket.client;
  * - port: 5555
  *
  * Client Komutları
- *   /nick <name>  -> server'a NICK<name>
+ *   /nick <name>  -> server'a  NICK<name>
  *   /who          -> server'a  WHO
- *   /quit         -> server'a QUIT
+ *   /quit         -> server'a  QUIT
  *
  * */
 
 import com.hamitmizrak._08_week_socket.PORT_HOST_OTHER;
 import com.hamitmizrak._08_week_socket.SpecialColor;
+import com.hamitmizrak._08_week_socket.common.ChatProtocol;
 
 import java.io.*;
 import java.net.Socket;
@@ -84,7 +85,6 @@ public class ChatClientMain {
     private static void readLoop(BufferedReader bufferedReader) {
         String line = "";
         try {
-
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println("\n" + pretty(line));
                 System.out.println(SpecialColor.BLUE + "> " + SpecialColor.RESET);
@@ -114,24 +114,43 @@ public class ChatClientMain {
 
         // Socket Bağlantısı
         // host:port TCP ile bağlanır
-        // Eğer bağlantı kruulmazsa burada exception alınsın ve server kapalı mesajı versin
+        // Eğer bağlantı kurulmazsa burada exception alınsın ve server kapalı mesajı versin
 
         // java.net.Socket
-        try(
+        try (
                 // Socket
-                Socket socket = new Socket(host,port);
+                Socket socket = new Socket(host, port);
 
                 // BufferedReader
-                BufferedReader in= new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
 
                 // PrintWriter
                 PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
 
-                Scanner scanner= new Scanner(System.in)){
+                Scanner scanner = new Scanner(System.in)) {
+            // Server'den gelen mesajları anlık okumak için
+            // Daemon thread olduğu için , main thread bittiğinde otomatik kapansın
+            Thread reader = new Thread(
+                    () -> readLoop(in),
+                    "Server-reader");
+
+            // Bu thread JVM'i ayakta tutsun
+            // Kullanıcı /quit yaptığında uygulamaya rahatlıkla kapatabilsin
+            reader.setDaemon(true);
+            reader.start();
+
+            // Kullanıcı isterse NICK yazdığında, NICK yazabilir.
+            // Boş bırakırsa server otomatik olarak "Guest" atasın
+            System.out.println("Nick giriniz (Default:  Guest)");
+            String nick = scanner.nextLine().trim();
+            if(!nick.isBlank()){
+                out.println("NICK: "+ ChatProtocol.sanitize(nick));
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
 
-
-
-}
+} //end ChatClientMain
