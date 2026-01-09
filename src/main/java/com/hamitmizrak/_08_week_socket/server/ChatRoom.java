@@ -4,7 +4,7 @@ package com.hamitmizrak._08_week_socket.server;
 /*
  * Chat servcer için "merkezi"  oda(room) yapısıdır.
  * Kimler online ?
- * Lişiye özel mesaj
+ * Kişiye özel mesaj
  * Genel mesaj
  * Thread-safety(eşzamanlılık)
  *
