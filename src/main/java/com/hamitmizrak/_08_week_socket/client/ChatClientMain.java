@@ -60,7 +60,6 @@ public class ChatClientMain {
 
         // SYS
         if (line.startsWith("CHAT ")) {
-
             int firstSpace = line.indexOf(" ");
             int secondSpace = line.indexOf(" ", firstSpace + 1);
             if (secondSpace > 0) {
@@ -93,7 +92,6 @@ public class ChatClientMain {
             System.out.println("\nBağlantı kapatıldı: [ " + SpecialColor.RED + ioException.getMessage() + SpecialColor.RESET + "]");
         }
     }
-
 
     // PSVM
     public static void main(String[] args) throws Exception {
@@ -183,6 +181,7 @@ public class ChatClientMain {
                 // Normal Message
                 out.println("MSG " + ChatProtocol.sanitize(line));
             }
+            System.out.println("Kullanıcı Kapatıldı");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
