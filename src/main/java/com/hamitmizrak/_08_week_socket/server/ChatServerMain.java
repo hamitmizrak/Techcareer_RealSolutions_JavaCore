@@ -10,7 +10,6 @@ import java.util.concurrent.Executors;
 
 public class ChatServerMain {
 
-
     // PSVM
     public static void main(String[] args) throws IOException {
         int port = PORT_HOST_OTHER.PORT;
@@ -31,7 +30,6 @@ public class ChatServerMain {
                 Socket socket =serverSocket.accept();
                 pool.submit(new ClientSession(socket,room));
             }
-
         }finally {
             pool.shutdown();
         }

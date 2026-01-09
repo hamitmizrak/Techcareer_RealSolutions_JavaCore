@@ -43,6 +43,70 @@ git clone  https://github.com/hamitmizrak/Techcareer_RealSolutions_JavaCore.git
 ```
 ---
 
+# Java Chat (Java Core) — Tek pom.xml (Server + Client)
+
+Bu proje gerçek bir **çoklu kullanıcı chat** demosu:
+- Server: `ServerSocket` ile dinler, her client'ı thread-pool ile yönetir
+- Client: terminalden mesaj yazar, server’dan gelenleri anlık gösterir
+- Mesajlar: server tarafında broadcast edilir (herkese gider)
+
+## 1) Build
+```bash
+mvn -q clean package
+```
+
+## 2) Üretilen JAR'lar
+`target/` altında iki jar oluşur:
+- `java-chat-1.0.0-server.jar`
+- `java-chat-1.0.0-client.jar`
+
+## 3) Çalıştırma
+
+### Server
+```bash
+java -jar target/java-chat-1.0.0-server.jar
+```
+
+Port vermek istersen:
+```bash
+java -jar target/java-chat-1.0.0-server.jar 5555
+```
+
+### Client
+Başka terminal(ler) aç:
+```bash
+java -jar target/java-chat-1.0.0-client.jar
+```
+
+Host/port vererek:
+```bash
+java -jar target/java-chat-1.0.0-client.jar 127.0.0.1 5555
+```
+
+## 4) Client komutları
+- `/nick yeniIsim`  -> nick değiştir
+- `/who`            -> online kullanıcıları listele
+- `/quit`           -> çık
+
+## 5) Protokol özeti (meraklısına)
+Client -> Server:
+- `NICK <name>`
+- `MSG <text>`
+- `WHO`
+- `QUIT`
+
+Server -> Client:
+- `SYS <text>`
+- `CHAT <nick> <text>`
+- `WHO <nick1,nick2,...>`
+
+## Öğrenme notu
+- `InputStreamReader`: socket'ten gelen byte akışını (InputStream) UTF-8 char akışına çevirir.
+- `BufferedReader`: satır satır `readLine()` ile okumayı sağlar.
+- TCP stream olduğu için “satır tabanlı protokol” mesaj sınırını en basit şekilde çözer.
+
+
+
 ```shell
 📦 Techcareer_RealSolutions_JavaCore
 ┣ 📂 src
