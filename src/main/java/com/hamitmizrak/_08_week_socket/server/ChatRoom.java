@@ -11,6 +11,7 @@ package com.hamitmizrak._08_week_socket.server;
 
 import com.hamitmizrak._08_week_socket.SpecialColor;
 import com.hamitmizrak._08_week_socket.common.ChatProtocol;
+
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -46,7 +47,7 @@ public class ChatRoom {
             nick = "Guest";
         }
         return nick;
-    }
+    } //end normalizeNick
 
     // BROAD_CAST_SYS
     // Sistem mesajını yayınlar (join/leave/hata)
@@ -83,7 +84,7 @@ public class ChatRoom {
 
         // Çok fazla kullanıcı varsa isim çakışmasını engeller
         return base + UUID.randomUUID().toString().substring(0, 4);
-    }
+    } //end makeUniqueNick
 
     // CHANGE_NICK
     public String changeNick(String oldNick, String desiredNick, PrintWriter out) {
@@ -103,12 +104,35 @@ public class ChatRoom {
         // Broadcast
         broadcastSys("* Eskisi: " + SpecialColor.RED + oldNick + SpecialColor.RESET + "Yenisi:  " + SpecialColor.YELLOW + uniqueNick + SpecialColor.RESET);
         return uniqueNick;
-    }
+    } //changeNick
 
     // WHO_SEND
     public void sendWho(PrintWriter printWriter) {
         List<String> nicks = new ArrayList<>(clientsByNick.keySet());
         Collections.sort(nicks);
         printWriter.println("KİM: " + String.join(",", nicks));
-    }
+    } //end sendWho
+
+
+    // BROADCAST
+    public void broadcastChat(String nick, String text) {
+        String safe= ChatProtocol.sanitize(text);
+
+        // Protokol satırı:  CHAT <nick> <text>
+        String line= "CHAT "+nick+" "+safe;
+
+        for (PrintWriter printWriter:clientsByNick.values()){
+            printWriter.println(line);
+        }
+    } //end broadcastChat
+
+    // LEAVE
+    public void leave(String nick) {
+        if(nick==null) return;
+
+        PrintWriter removed = clientsByNick.remove(nick);
+        if(removed!=null){
+            broadcastSys("* "+nick+ " left");
+        }
+    } //end leave
 } //end ChatRoom
