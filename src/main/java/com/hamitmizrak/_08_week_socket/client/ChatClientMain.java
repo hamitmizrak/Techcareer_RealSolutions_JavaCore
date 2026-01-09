@@ -143,10 +143,46 @@ public class ChatClientMain {
             // Boş bırakırsa server otomatik olarak "Guest" atasın
             System.out.println("Nick giriniz (Default:  Guest)");
             String nick = scanner.nextLine().trim();
-            if(!nick.isBlank()){
-                out.println("NICK: "+ ChatProtocol.sanitize(nick));
+            if (!nick.isBlank()) {
+                out.println("NICK: " + ChatProtocol.sanitize(nick));
             }
 
+            System.out.println("Komutlar: /nick <name>,  /who, /quit");
+            System.out.println("Komutlarınızı giriniz veya 'Enter' tuşuna basınız");
+
+            // Sonsuz döngü
+            while (true) {
+                System.out.println("> ");
+                String line = scanner.nextLine();
+                if (line == null) {
+                    continue;
+                }
+                line = line.trim();
+                if (line.isEmpty()) {
+                    continue;
+                }
+
+                // Client-side slash komutu
+                // Kullanıcı "/who yazınca server protokolüne çeviriyoruz.
+                // Böylelikle kullanıcı "MSG" gibi protokol deyatlarını bilmek zorunda kalamuyacak
+                if (line.startsWith("/nick ")) {
+                    out.println("NICK " + ChatProtocol.sanitize(line.substring(6).trim()));
+                    continue;
+                }
+
+                if (line.equalsIgnoreCase("/who")) {
+                    out.println("WHO");
+                    continue;
+                }
+
+                if (line.equalsIgnoreCase("/quit")) {
+                    out.println("QUT");
+                    break;
+                }
+
+                // Normal Message
+                out.println("MSG " + ChatProtocol.sanitize(line));
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
