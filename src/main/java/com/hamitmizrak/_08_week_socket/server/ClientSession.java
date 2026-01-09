@@ -30,7 +30,7 @@ public class ClientSession implements Runnable {
 
         try (
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-                PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8, true))
+                PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true)
         ) {
             out.println("SYS Hoşgeldiniz JavaChat Komutlar: /nick <name>,  /who,  /quit");
 
