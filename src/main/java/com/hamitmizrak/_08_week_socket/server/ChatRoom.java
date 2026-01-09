@@ -7,12 +7,10 @@ package com.hamitmizrak._08_week_socket.server;
  * Kişiye özel mesaj
  * Genel mesaj
  * Thread-safety(eşzamanlılık)
- *
  * */
 
 import com.hamitmizrak._08_week_socket.SpecialColor;
 import com.hamitmizrak._08_week_socket.common.ChatProtocol;
-
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
